@@ -153,7 +153,7 @@ class CaptionModal extends Component {
                                 ) : (<Container/>)}
 
 
-                                <Label for="eng_certif" style={{ marginTop: '1rem' }}>Do you have any English certification?</Label>
+                                <Label for="eng_certif" style={{ marginTop: '1rem' }}> Do you have any English certification?</Label>
                                     <Input type="select" name="eng_certif" id="eng_certif" onChange={this.onChange}>
                                         <option disabled selected value> -- select an option -- </option>
                                         <option>Yes</option>
@@ -162,18 +162,34 @@ class CaptionModal extends Component {
 
                                 {this.state.eng_certif === "Yes" ?
                                 (  <Container>    
-                                        <Label for="eng_certif_res" style={{ marginTop: '1rem' }}> Which results did you obtain? </Label>
+                                        <Label for="eng_certif_res" style={{ marginTop: '1rem' }}> What is your certified English level? </Label>
                                         <Input type="select" name="eng_certif_res" id="eng_certif_res" rows="1" onChange={this.onChange}>  
                                         <option disabled selected value> -- select an option -- </option>
-                                        <option>C2</option>
-                                        <option>C1</option>
-                                        <option>B2</option>
-                                        <option>B1</option>
-                                        <option>A2</option>
-                                        <option>A1</option>
+                                        <option>C2 (Proficiency)</option>
+                                        <option>C1 (Advanced)</option>
+                                        <option>B2 (Upper-Intermediate)</option>
+                                        <option>B1 (Intermediate)</option>
+                                        <option>A2 (Elementary)</option>
+                                        <option>A1 (Beginner) </option>
                                         </Input>
                                     </Container>
-                                ) : (<Container/>)}
+                                ) : (<Container/>)
+                                }
+
+                                {this.state.eng_certif === "No" ?
+                                ( <Container>    
+                                    <Label for="eng_certif_res" style={{ marginTop: '1rem' }}> How would you evaluate your English level? </Label>
+                                    <Input type="select" name="eng_certif_res" id="eng_certif_res" rows="1" onChange={this.onChange}>  
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option>C2 (Proficiency)</option>
+                                    <option>C1 (Advanced)</option>
+                                    <option>B2 (Upper-Intermediate)</option>
+                                    <option>B1 (Intermediate)</option>
+                                    <option>A2 (Elementary)</option>
+                                    <option>A1 (Beginner) </option>
+                                    </Input>
+                                </Container>) : (<Container/>)
+                                }
 
                             </Jumbotron>
 
