@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Input, Button, Form, FormGroup, Label, Container} from 'reactstrap';
+import { Jumbotron, Input, Button, Form, FormGroup, Label, Container, Collapse} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
@@ -83,12 +83,17 @@ class CaptionModal extends Component {
             work : this.state.work,
             work_occupation : this.state.work_occupation,
             eng_certif : this.state.eng_certif,
-            eng_certif_res : this.state.eng_certif_res
+            eng_certif_res : this.state.eng_certif_res,
+            collapseFAQ1 : false,
         }
         this.props.addCaption(newCaption);
         this.props.history.push('/plots-collection');
     }
         
+    toggleFAQ = e => {
+        this.setState({ [e.target.name]: !e.target.value });
+    };
+
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
@@ -174,35 +179,55 @@ class CaptionModal extends Component {
 
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem' }}>
                                 <h4> Line chart plot description: </h4>   
-                                <Row class="align-items-center" style={{ marginTop: '1rem' }}>
+                            <hr/>
+                                <h6>What is a figure caption?</h6>
+                                <div>
+                                    A figure caption is a textual description about the figure contents.
+                                </div>
+                            <hr/>
+                                <h6>Why is it important to report a caption together with the figure?</h6>
+                                <div>
+                                    Because a figure caption, if well structured, would allows readers to better interpret and understand the figure itself.                                
+                                </div>
+                            <hr/>
+                                <h6>How would a figure caption be?</h6>
+                                <div>
+                                    Captions should be concise but comprehensive. They should describe the data shown, draw attention to important features contained within the figure, and may sometimes also include interpretations of the data
+                                </div>
+                            <hr/>
+                                <h6>Which are considered the most important features of a data chart?</h6>
+                                <div>
+                                Some examples of important features about a data chart image would be maximum/minimum value, trends, pattern or unusual values.
+                                </div>
+                            <hr/>
+                            <hr/>
+                            <hr/>
+
+                                <Row class="align-items-center" style={{ marginTop: '3rem' }}>
                                     <Col xs="6" align="left" >
-                                        Click on the image to zoom..
-                                    </Col>
-                                </Row>
-                                <Row class="align-items-center" style={{ marginTop: '1rem' }}>
-                                    <Col xs="6" align="left" >
-                                        <ImageZoom
-                                            image={{
-                                                src: require('../media/Plots_Collection/' + this.state.current_image_filename),
-                                                alt: 'Pic not available',
-                                                className: 'img',
-                                                style: { width: '90%' }
-                                            }}
-                                            zoomImage={{
-                                                src:  require('../media/Plots_Collection/' + this.state.current_image_filename),
-                                                alt: 'Pic not available'
-                                            }}
-                                        />
+                                      <Label for="caption_content"> <h6> What is the following graph about?  </h6> Describe the most significant trends, patterns and features about it. </Label>
+                                      <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
                                     </Col>
                                     <Col xs="6" align="left">
-                                        <Label for="caption_content"> What is the following graph about?</Label>
-                                            <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
+                                        Click on the image to zoom..
+                                        <ImageZoom
+                                        image={{
+                                            src: require('../media/Plots_Collection/' + this.state.current_image_filename),
+                                            alt: 'Pic not available',
+                                            className: 'img',
+                                            style: { width: '90%' }
+                                        }}
+                                        zoomImage={{
+                                            src:  require('../media/Plots_Collection/' + this.state.current_image_filename),
+                                            alt: 'Pic not available'
+                                        }}
+                                        />
                                     </Col>
                                 </Row>
                             </Jumbotron>
-                            
+
                                 <Button color='dark' style={{ marginTop: '2rem', marginBottom: '2rem'  }} block>
-                                    Send Caption
+                                    Submit the form
                                 </Button>
                             </FormGroup>
                         </Form>
