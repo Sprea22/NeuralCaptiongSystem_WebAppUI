@@ -1,0 +1,4 @@
+{
+    "mongoURI" : " mongodb+srv://Admin:ciaociao@captions-collector-cluster-aognl.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret" : "sl_myJwtSecret"
+}

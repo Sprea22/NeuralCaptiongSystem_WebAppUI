@@ -1,0 +1,40 @@
+{
+  "name": "mern_shopping_list",
+  "version": "1.0.0",
+  "description": "Shopping list built with the MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "test": "npm run test --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "Brad Traversy",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-regular-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@tensorflow/tfjs": "^1.2.2",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^3.6.0",
+    "config": "^3.0.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.0",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "mongoose": "^5.1.6",
+    "react-bootstrap-table": "^4.3.1",
+    "react-input-autosize": "^1.1.0",
+    "react-medium-image-zoom": "^3.1.0",
+    "react-native-responsive-fontsize": "^0.1.8",
+    "react-router-dom": "^5.0.0",
+    "react-select": "^2.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
