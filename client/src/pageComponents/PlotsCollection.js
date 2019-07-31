@@ -22,7 +22,7 @@ class PlotsCollection extends Component {
             <NavbarApp/>
             <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
             <Container fluid align="center">
-                <h2>Stock charts list</h2>
+                <h2>Plots Collection</h2>
                 </Container>
             </Jumbotron>
 

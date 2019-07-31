@@ -15,9 +15,9 @@ class NavbarApp extends Component {
   };
 
   buttonStyle = {
-    maxWidth: '120px', 
+    maxWidth: '165px', 
     maxHeight: '50px',
-    minWidth: '120px', 
+    minWidth: '165px', 
     minHeight: '50px'}
 
     render() {
@@ -57,12 +57,12 @@ class NavbarApp extends Component {
           </Container>
         </Jumbotron>
       
-        <Container >
+        <Container style={{ marginBottom: '2rem', marginTop: '2rem'}}>
         <Row>
           <Col align="center">        
             <Link to={{ pathname: '/'}} style={{color: "black"}}>
               <Fab variant="extended" aria-label="Delete" style={this.buttonStyle}>
-                Homepage
+                About
               </Fab>
             </Link>
           </Col>

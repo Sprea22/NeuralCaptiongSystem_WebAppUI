@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Input, Button, Form, FormGroup, Label, Container, Collapse} from 'reactstrap';
+import { Jumbotron, Input, Button, Form, FormGroup, Label, Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
@@ -84,7 +84,6 @@ class CaptionModal extends Component {
             work_occupation : this.state.work_occupation,
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
-            collapseFAQ1 : false,
         }
         this.props.addCaption(newCaption);
         this.props.history.push('/plots-collection');
@@ -102,6 +101,12 @@ class CaptionModal extends Component {
         return (
             <div>
             <NavbarApp/>
+                <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
+                <Container fluid align="center">
+                    <h2>Contribute to the project!</h2>
+                    </Container>
+                </Jumbotron>
+
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
                     
                         <Form onSubmit={this.onSubmit}>
@@ -153,7 +158,7 @@ class CaptionModal extends Component {
                                 ) : (<Container/>)}
 
 
-                                <Label for="eng_certif" style={{ marginTop: '1rem' }}> Do you have any English certification?</Label>
+                                <Label for="eng_certif" style={{ marginTop: '1rem' }}> Did you obtain any kind of certification of your English level?</Label>
                                     <Input type="select" name="eng_certif" id="eng_certif" onChange={this.onChange}>
                                         <option disabled selected value> -- select an option -- </option>
                                         <option>Yes</option>
@@ -194,7 +199,7 @@ class CaptionModal extends Component {
                             </Jumbotron>
 
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem' }}>
-                                <h4> Line chart plot description: </h4>   
+                                <h4> General information: </h4>   
                             <hr/>
                                 <h6>What is a figure caption?</h6>
                                 <div>
@@ -216,22 +221,22 @@ class CaptionModal extends Component {
                                 Some examples of important features about a data chart image would be maximum/minimum value, trends, pattern or unusual values.
                                 </div>
                             <hr/>
-                            <hr/>
+
+                                <h4 style={{ marginTop: '5rem' }}> Line chart caption form: </h4>   
                             <hr/>
 
-                                <Row class="align-items-center" style={{ marginTop: '3rem' }}>
+                                <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
                                       <Label for="caption_content"> <h6> What is the following graph about?  </h6> Describe the most significant trends, patterns and features about it. </Label>
                                       <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
                                     </Col>
                                     <Col xs="6" align="left">
-                                        Click on the image to zoom..
                                         <ImageZoom
                                         image={{
                                             src: require('../media/Plots_Collection/' + this.state.current_image_filename),
                                             alt: 'Pic not available',
                                             className: 'img',
-                                            style: { width: '90%' }
+                                            style: { width: '100%' }
                                         }}
                                         zoomImage={{
                                             src:  require('../media/Plots_Collection/' + this.state.current_image_filename),
@@ -240,11 +245,12 @@ class CaptionModal extends Component {
                                         />
                                     </Col>
                                 </Row>
-                            </Jumbotron>
-
-                                <Button color='dark' style={{ marginTop: '2rem', marginBottom: '2rem'  }} block>
+                            <hr style={{ marginTop: '2rem'}}/>
+                                <Button color='dark' style={{ marginTop: '2rem'}} block>
                                     Submit the form
                                 </Button>
+                            </Jumbotron>
+                      
                             </FormGroup>
                         </Form>
             </Jumbotron>
