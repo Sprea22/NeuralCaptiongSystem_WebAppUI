@@ -222,7 +222,7 @@ class CaptionModal extends Component {
                             <hr/>
                                 <h6>Why is it important to report a caption together with the figure?</h6>
                                 <div>
-                                    Because a figure caption, if well structured, would allows readers to better interpret and understand the figure itself.                                
+                                    Because a figure caption, if well made, would be extremely useful to let the readers better understand the figure itself.                                
                                 </div>
                             <hr/>
                                 <h6>How would a figure caption be?</h6>
