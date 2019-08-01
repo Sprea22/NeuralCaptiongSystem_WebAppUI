@@ -103,7 +103,7 @@ class CaptionModal extends Component {
             <NavbarApp/>
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
                 <Container fluid align="center">
-                    <h2>Contribute to the project!</h2>
+                    <h2>Contribute to the research!</h2>
                     </Container>
                 </Jumbotron>
 
@@ -115,11 +115,11 @@ class CaptionModal extends Component {
                                 <h4> Personal Details: </h4>    
 
                                 <Label for="age">What's your age?</Label>
-                                    <Input type="textarea" name="age" id="age" rows="1" onChange={this.onChange}/>
+                                    <Input type="textarea" name="age" id="age" rows="1" placeholder=" -- select an option -- " onChange={this.onChange}/>
 
                                 <Label for="gender" style={{ marginTop: '1rem' }}>What's your gender?</Label>
-                                    <Input type="select" name="gender" id="gender" onChange={this.onChange}>
-                                        <option disabled selected value> -- select an option -- </option>
+                                    <Input type="select" name="gender" id="gender" placeholder=" -- select an option -- " onChange={this.onChange}>
+                                    <option disabled selected value> -- select an option -- </option>
                                         <option>Male</option>
                                         <option>Female</option>
                                     </Input>
