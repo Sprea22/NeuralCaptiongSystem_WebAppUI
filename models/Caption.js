@@ -54,6 +54,10 @@ const CaptionSchema = new Schema({
     type: String,
   },
 
+  eng_nat_speaker: {
+    type: String,
+  },
+
   date: {
     type: Date,
     default: Date.now

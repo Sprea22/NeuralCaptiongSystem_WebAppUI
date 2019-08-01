@@ -13,13 +13,15 @@ class Demo extends Component {
         <NavbarApp/>
 
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-            <Container fluid align="center">
+        <Container fluid align="center">
                 <h2>Demo of the auto captioning system:</h2>
                 </Container>
             </Jumbotron>
 
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-                    Work in progress..
+                    <Container fluid align="center">
+                        Work in progress.. 
+                    </Container>
                 </Jumbotron>
 
             </div>

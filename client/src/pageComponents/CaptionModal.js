@@ -32,7 +32,8 @@ class CaptionModal extends Component {
           work : "",
           work_occupation : "",
           eng_certif : "",
-          eng_certif_res : ""
+          eng_certif_res : "",
+          eng_nat_speaker : ""
       }
 
     componentDidMount() {
@@ -84,6 +85,7 @@ class CaptionModal extends Component {
             work_occupation : this.state.work_occupation,
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
+            eng_nat_speaker : this.state.eng_nat_speaker
         }
         this.props.addCaption(newCaption);
         this.props.history.push('/plots-collection');
@@ -157,13 +159,25 @@ class CaptionModal extends Component {
                                     </Container>
                                 ) : (<Container/>)}
 
+                                <Label for="eng_nat_speaker" style={{ marginTop: '1rem' }}> Are you a native English speaker? </Label>
+                                    <Input type="select" name="eng_nat_speaker" id="eng_nat_speaker" onChange={this.onChange}>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                </Input>
 
-                                <Label for="eng_certif" style={{ marginTop: '1rem' }}> Did you obtain any kind of certification of your English level?</Label>
+                                {this.state.eng_nat_speaker === "No" ?
+                                (<Container> 
+                                    <Label for="eng_certif" style={{ marginTop: '1rem' }}> Did you obtain any kind of certification of your English level?</Label>
                                     <Input type="select" name="eng_certif" id="eng_certif" onChange={this.onChange}>
                                         <option disabled selected value> -- select an option -- </option>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </Input>
+                                </Container>) : 
+                                (<Container/>)
+                                }
+
 
                                 {this.state.eng_certif === "Yes" ?
                                 (  <Container>    
