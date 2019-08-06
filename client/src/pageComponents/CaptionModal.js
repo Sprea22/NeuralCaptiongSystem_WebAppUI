@@ -29,8 +29,6 @@ class CaptionModal extends Component {
           gender : "",
           study : "",
           study_field : "",
-          work : "",
-          work_occupation : "",
           eng_certif : "",
           eng_certif_res : "",
           eng_nat_speaker : ""
@@ -81,8 +79,6 @@ class CaptionModal extends Component {
             gender :  this.state.gender,
             study : this.state.study,
             study_field : this.state.study_field,
-            work : this.state.work,
-            work_occupation : this.state.work_occupation,
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
             eng_nat_speaker : this.state.eng_nat_speaker
@@ -116,46 +112,40 @@ class CaptionModal extends Component {
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem', marginBottom: '-1rem'}}>
                                 <h4> Personal Details: </h4>    
 
-                                <Label for="age">What's your age?</Label>
+                                <Label for="age">What is your age?</Label>
                                     <Input type="textarea" name="age" id="age" rows="1" placeholder=" -- select an option -- " onChange={this.onChange}/>
 
-                                <Label for="gender" style={{ marginTop: '1rem' }}>What's your gender?</Label>
+                                <Label for="gender" style={{ marginTop: '1rem' }}> How do you identify your gender? </Label>
                                     <Input type="select" name="gender" id="gender" placeholder=" -- select an option -- " onChange={this.onChange}>
                                     <option disabled selected value> -- select an option -- </option>
                                         <option>Male</option>
                                         <option>Female</option>
+                                        <option>Prefer not to answer</option>
+                                        <option>Others</option>
                                     </Input>
 
-                                <Label for="study" style={{ marginTop: '1rem' }}>Are you currently enrolled in or have you previously completed any academic studies?</Label>
-                                    <Input type="select" name="study" id="study" onChange={this.onChange}>
-                                        <option disabled selected value> -- select an option -- </option>
-                                        <option>Yes</option>
-                                        <option>No</option>
-                                    </Input>
-
-                                {this.state.study === "Yes" ? 
+                                {this.state.gender === "Others" ? 
                                 (  <Container>    
-                                        <Label for="study_field" style={{ marginTop: '1rem' }}> What is your field of study?</Label>
+                                        <Label for="study_field" style={{ marginTop: '1rem' }}> You can specify here your gender: </Label>
                                         <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
                                     </Container>
                                 ) : (<Container/>)}
 
-                                {this.state.study === "No" ? 
-                                (
-                                    <Container>                           
-                                        <Label for="work" style={{ marginTop: '1rem' }}> Are you currently working?	</Label>
-                                        <Input type="select" name="work" id="work" onChange={this.onChange}>
-                                            <option disabled selected value> -- select an option -- </option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                        </Input>
-                                    </Container> 
-                                ) : (<Container/>)}
+                                <Label for="study" style={{ marginTop: '1rem' }}>What is the highest degree or level of school you have completed? If currently enrolled, select the highest degree you are currently enrolled in: </Label>
+                                    <Input type="select" name="study" id="study" onChange={this.onChange}>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option>Nursery school to 8th grade</option>
+                                        <option>High school</option>
+                                        <option>Bachelor’s degree</option>
+                                        <option>Master’s degree</option>
+                                        <option>Professional  degree</option>
+                                        <option>Doctorate  degree</option>
+                                    </Input>
 
-                                {this.state.study === "No" && this.state.work === "Yes"? 
+                                {this.state.study !== "Nursery school to 8th grade" ? 
                                 (  <Container>    
-                                        <Label for="work_occupation" style={{ marginTop: '1rem' }}> What is your occupation? </Label>
-                                        <Input type="textarea" name="work_occupation" id="work_occupation" rows="1" onChange={this.onChange}></Input>
+                                        <Label for="study_field" style={{ marginTop: '1rem' }}> What is your main field of study?</Label>
+                                        <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
                                     </Container>
                                 ) : (<Container/>)}
 

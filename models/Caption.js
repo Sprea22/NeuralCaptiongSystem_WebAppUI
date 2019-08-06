@@ -31,14 +31,6 @@ const CaptionSchema = new Schema({
     type: String,
   },
 
-  work: {
-    type: String,
-  },
-
-  work_occupation: {
-    type: String,
-  },
-
   eng_certif: {
     type: String,
   },
