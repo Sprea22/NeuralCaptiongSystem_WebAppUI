@@ -205,27 +205,37 @@ class CaptionModal extends Component {
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem' }}>
                                 <h4> General information: </h4>   
                             <hr/>
-                                <h6>What is a figure caption?</h6>
+                            <Row class="align-items-center" style={{ marginTop: '1rem' }}>
+                                <h6>What is a caption?</h6>
                                 <div>
-                                    A figure caption is a textual description about the figure contents.
+                                    A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
+                                    It can also be attached also to a figure in order to provide textual description of the contents.
+                                    <br/>
+                                    A caption should be concise but comprehensive. They should describe the data shown, draw attention to 
+                                    important features contained within the figure, and may sometimes also include interpretations of the data
                                 </div>
+                            </Row>
+                            <br/>
+                            <Row style={{ marginTop: '1rem' }}>
+                                <Col align="middle">
+                                    <ImageZoom
+                                        image={{
+                                            src: require('../media/captions.png'),
+                                            alt: 'Pic not available',
+                                            className: 'img',
+                                            style: { width: '70%' }
+                                        }}
+                                        zoomImage={{
+                                            src:  require('../media/captions.png'),
+                                            alt: 'Pic not available'
+                                        }}
+                                    /> 
+                                    <br/><br/>
+                                    Basic examples of general purpose images caption.
+                                </Col>
+                            </Row>
+                              
                             <hr/>
-                                <h6>Why is it important to report a caption together with the figure?</h6>
-                                <div>
-                                    Because a figure caption, if well made, would be extremely useful to let the readers better understand the figure itself.                                
-                                </div>
-                            <hr/>
-                                <h6>How would a figure caption be?</h6>
-                                <div>
-                                    Captions should be concise but comprehensive. They should describe the data shown, draw attention to important features contained within the figure, and may sometimes also include interpretations of the data
-                                </div>
-                            <hr/>
-                                <h6>Which are considered the most important features of a data chart?</h6>
-                                <div>
-                                Some examples of important features about a data chart image would be maximum/minimum value, trends, pattern or unusual values.
-                                </div>
-                            <hr/>
-
                                 <h4 style={{ marginTop: '5rem' }}> Line chart caption form: </h4>   
                             <hr/>
 
