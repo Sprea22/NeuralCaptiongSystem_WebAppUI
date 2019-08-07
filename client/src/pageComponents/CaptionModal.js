@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Input, Button, Form, FormGroup, Label, Container} from 'reactstrap';
+import { Jumbotron, Input, Alert, Button, Form, FormGroup, Label, Modal, ModalHeader, ModalBody, ModalFooter, Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import {getCaptions, addCaption} from './../actions/captionActions';
+import formValidation from './FormValidation.js';
 
 function getOccurrence(array, value) {
     var count = 0;
@@ -20,23 +21,25 @@ class CaptionModal extends Component {
         getCaptions: PropTypes.func.isRequired,
         addCaption: PropTypes.func.isRequired,
       };
-
+    
       state = {
-          initialized : false,
-          current_image_id : -1,
-          current_image_filename : "1.png",
-          caption_content : "",
-          age : "",
-          gender : "",
-          study : "",
-          study_field : "",
-          eng_certif : "",
-          eng_certif_res : "",
-          eng_nat_speaker : "",
-          start_time : ""
-      }
+        errors: [],
+        initialized : false,
+        current_image_id : -1,
+        current_image_filename : "1.png",
+        caption_content : "",
+        age : "",
+        gender : "",
+        study : "",
+        study_field : "",
+        eng_certif : "",
+        eng_certif_res : "",
+        eng_nat_speaker : "",
+        start_time : "",
+        modal : false
+    }
 
-    componentDidMount() {
+    getRandomChart() {
         var items = []
         var stored_captions = []
         var captions_counter = {}
@@ -68,19 +71,27 @@ class CaptionModal extends Component {
 
         this.setState({current_image_filename : newRandomItem})
         this.setState({current_image_id : newRandomItem.split(".")[0]})
+    }
 
+    componentDidMount() {
+        this.getRandomChart()
     }
     
     onSubmit = e => {
         e.preventDefault()
 
-        var end_time_nf = new Date();
-        var end_time_f = end_time_nf.getHours() + ":" + end_time_nf.getMinutes() + ":" + end_time_nf.getSeconds();
-        var start_time_f = this.state.start_time.getHours() + ":" + this.state.start_time.getMinutes() + ":" + this.state.start_time.getSeconds();
-
-        var t1 = moment(start_time_f, "HH:mm:ss");
-        var t2 = moment(end_time_f, "HH:mm:ss");
-        var t3 = moment(t2.diff(t1, 'seconds'));
+        if(this.state.start_time !== "") {
+            var end_time_nf = new Date();
+            var end_time_f = end_time_nf.getHours() + ":" + end_time_nf.getMinutes() + ":" + end_time_nf.getSeconds();
+            var start_time_f = this.state.start_time.getHours() + ":" + this.state.start_time.getMinutes() + ":" + this.state.start_time.getSeconds();
+    
+            var t1 = moment(start_time_f, "HH:mm:ss");
+            var t2 = moment(end_time_f, "HH:mm:ss");
+            var t3 = moment(t2.diff(t1, 'seconds'));
+            var total_time_f = t3._i
+        } else {
+            total_time_f = ""
+        }
 
         const newCaption = {
             id_caption : this.state.current_image_id,
@@ -93,22 +104,43 @@ class CaptionModal extends Component {
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
             eng_nat_speaker : this.state.eng_nat_speaker,
-            total_time : t3._i
+            total_time : total_time_f
         }
-        this.props.addCaption(newCaption);
-        this.props.history.push('/plots-collection');
+
+        const errors = formValidation(newCaption);
+
+        if (errors.length > 0) {
+          this.setState({ errors });
+          return;
+        }
+        else {
+            this.props.addCaption(newCaption);
+            this.setState({ errors : []})
+            this.setState({ modal: !this.state.modal });
+        }
     }
         
-    toggleFAQ = e => {
-        this.setState({ [e.target.name]: !e.target.value });
-    };
-
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
+
+    toggleExit  = e => {
+        this.props.history.push('/');
+    }
+
+    toggleAnotherCaption  = e =>{
+        this.setState({ modal: !this.state.modal });
+        this.setState({ caption_content: "" });
+        document.getElementById("caption_content").value = "";
+
+        this.getRandomChart()
+        this.props.history.push('/contribute');
+    }
     
     render() {
-        var end_time = new Date();
+
+        const { errors } = this.state;
+
         return (
             <div>
             <NavbarApp/>
@@ -230,9 +262,9 @@ class CaptionModal extends Component {
                                 <h6>What is a caption?</h6>
                                 <div>
                                     A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
-                                    It can also be attached also to a figure in order to provide textual description of the contents.
+                                    It can also be attached also to a data chart in order to provide textual description and interpretation of the contents.
                                     <br/>
-                                    A caption should be concise but comprehensive. They should describe the data shown, draw attention to 
+                                    A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
                                     important features contained within the figure, and may sometimes also include interpretations of the data.
                                 </div>
                             </Row>
@@ -244,7 +276,7 @@ class CaptionModal extends Component {
                                             src: require('../media/captions.png'),
                                             alt: 'Pic not available',
                                             className: 'img',
-                                            style: { width: '100%' }
+                                            style: { width: '80%' }
                                         }}
                                         zoomImage={{
                                             src:  require('../media/captions.png'),
@@ -252,7 +284,7 @@ class CaptionModal extends Component {
                                         }}
                                     /> 
                                     <br/><br/>
-                                    Basic examples of general purpose images caption.
+                                    Few examples of general purpose images caption.
                                 </Col>
                             </Row>
                               
@@ -265,7 +297,7 @@ class CaptionModal extends Component {
                                       <Label for="caption_content"> <h6> What is the following graph about?  
                                           </h6> Please write in the following input field a caption about the graph reported on the right.
                                           Try to describe it using less than 75 words. </Label>
-                                        <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
+                                        <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
                                         {this.state.caption_content.split(" ").length === 2 & this.state.start_time === "" ?
                                             (this.setState({start_time : new Date()})) : ("")
@@ -287,9 +319,26 @@ class CaptionModal extends Component {
                                     </Col>
                                 </Row>
                             <hr style={{ marginTop: '2rem'}}/>
-                                <Button color='dark' style={{ marginTop: '2rem'}} block>
+
+                            {errors.length > 0 ? (<Alert color='danger'> {errors.map(error => (<p key={error}>Error : {error}</p>))}</Alert>) : null}
+
+                                <Button color='dark'style={{ marginTop: '2rem'}} block>
                                     Submit the form
                                 </Button>
+                                <Modal isOpen={this.state.modal}className={this.props.className}>
+                                    <ModalHeader>Thanks for your contribute!</ModalHeader>
+                                    <ModalBody>
+                                        Thank you again for taking time to contribute to our research. We truly value the information you have provided.
+                                        <br/><br/>
+                                        Would you mind to submit an another caption? We would be extremely grateful with you!
+                                        <br/><br/>
+                                        Note: you'll not have to insert your personal details again! 
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="primary" onClick={this.toggleAnotherCaption}>Submit an another caption</Button>{' '}
+                                        <Button color="secondary" onClick={this.toggleExit}>Exit</Button>
+                                    </ModalFooter>
+                                </Modal>
                             </Jumbotron>
                       
                             </FormGroup>

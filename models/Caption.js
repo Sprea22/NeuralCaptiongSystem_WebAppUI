@@ -16,7 +16,7 @@ const CaptionSchema = new Schema({
   },
 
   age: {
-    type: Number,
+    type: String,
   },
 
   gender: {
