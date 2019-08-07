@@ -5,6 +5,7 @@ import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
 import ImageZoom from 'react-medium-image-zoom'
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import {getCaptions, addCaption} from './../actions/captionActions';
 
@@ -31,7 +32,8 @@ class CaptionModal extends Component {
           study_field : "",
           eng_certif : "",
           eng_certif_res : "",
-          eng_nat_speaker : ""
+          eng_nat_speaker : "",
+          start_time : ""
       }
 
     componentDidMount() {
@@ -71,6 +73,15 @@ class CaptionModal extends Component {
     
     onSubmit = e => {
         e.preventDefault()
+
+        var end_time_nf = new Date();
+        var end_time_f = end_time_nf.getHours() + ":" + end_time_nf.getMinutes() + ":" + end_time_nf.getSeconds();
+        var start_time_f = this.state.start_time.getHours() + ":" + this.state.start_time.getMinutes() + ":" + this.state.start_time.getSeconds();
+
+        var t1 = moment(start_time_f, "HH:mm:ss");
+        var t2 = moment(end_time_f, "HH:mm:ss");
+        var t3 = moment(t2.diff(t1, 'seconds'));
+
         const newCaption = {
             id_caption : this.state.current_image_id,
             img_filename : this.state.current_image_filename,
@@ -81,7 +92,8 @@ class CaptionModal extends Component {
             study_field : this.state.study_field,
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
-            eng_nat_speaker : this.state.eng_nat_speaker
+            eng_nat_speaker : this.state.eng_nat_speaker,
+            total_time : t3._i
         }
         this.props.addCaption(newCaption);
         this.props.history.push('/plots-collection');
@@ -96,6 +108,7 @@ class CaptionModal extends Component {
       };
     
     render() {
+        var end_time = new Date();
         return (
             <div>
             <NavbarApp/>
@@ -142,7 +155,7 @@ class CaptionModal extends Component {
                                         <option>Doctorate  degree</option>
                                     </Input>
 
-                                {this.state.study !== "Nursery school to 8th grade" ? 
+                                {this.state.study !== "Nursery school to 8th grade" & this.state.study !== "" ? 
                                 (  <Container>    
                                         <Label for="study_field" style={{ marginTop: '1rem' }}> What is your main field of study?</Label>
                                         <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
@@ -212,7 +225,7 @@ class CaptionModal extends Component {
                                     It can also be attached also to a figure in order to provide textual description of the contents.
                                     <br/>
                                     A caption should be concise but comprehensive. They should describe the data shown, draw attention to 
-                                    important features contained within the figure, and may sometimes also include interpretations of the data
+                                    important features contained within the figure, and may sometimes also include interpretations of the data.
                                 </div>
                             </Row>
                             <br/>
@@ -223,7 +236,7 @@ class CaptionModal extends Component {
                                             src: require('../media/captions.png'),
                                             alt: 'Pic not available',
                                             className: 'img',
-                                            style: { width: '70%' }
+                                            style: { width: '100%' }
                                         }}
                                         zoomImage={{
                                             src:  require('../media/captions.png'),
@@ -236,13 +249,19 @@ class CaptionModal extends Component {
                             </Row>
                               
                             <hr/>
-                                <h4 style={{ marginTop: '5rem' }}> Line chart caption form: </h4>   
+                                <h4 style={{ marginTop: '5rem' }}> Contribute to the research: </h4>   
                             <hr/>
 
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
-                                      <Label for="caption_content"> <h6> What is the following graph about?  </h6> Describe the most significant trends, patterns and features about it. </Label>
-                                      <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
+                                      <Label for="caption_content"> <h6> What is the following graph about?  
+                                          </h6> Please write in the following input field a caption about the graph reported on the right.
+                                          Try to describe it using less than 75 words. </Label>
+                                        <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange}/>
+                                        Words counter: {this.state.caption_content.split(" ").length}/75
+                                        {this.state.caption_content.split(" ").length === 2 & this.state.start_time === "" ?
+                                            (this.setState({start_time : new Date()})) : ("")
+                                            }
                                     </Col>
                                     <Col xs="6" align="left">
                                         <ImageZoom
