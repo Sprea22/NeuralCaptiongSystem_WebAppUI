@@ -43,6 +43,10 @@ const CaptionSchema = new Schema({
     type: String,
   },
 
+  total_time: {
+    type: String,
+  },
+
   date: {
     type: Date,
     default: Date.now

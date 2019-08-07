@@ -26,7 +26,8 @@ router.post('/', (req, res) => {
     study_field : req.body.gstudy_fieldender,
     eng_certif : req.body.eng_certif,
     eng_certif_res : req.body.eng_certif_res,
-    eng_nat_speaker : req.body.eng_nat_speaker
+    eng_nat_speaker : req.body.eng_nat_speaker,
+    total_time : req.body.total_time
   });
 
   newCaption.save().then(caption => res.json(caption));

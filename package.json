@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.0",
     "material-ui-icons": "^1.0.0-beta.36",
     "mongoose": "^5.1.6",
+    "react-bootstrap-character-counter": "^1.2.0",
     "react-bootstrap-table": "^4.3.1",
     "react-input-autosize": "^1.1.0",
     "react-medium-image-zoom": "^3.1.0",

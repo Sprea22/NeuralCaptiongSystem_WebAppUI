@@ -126,8 +126,16 @@ class CaptionModal extends Component {
                                 <h4> Personal Details: </h4>    
 
                                 <Label for="age">What is your age?</Label>
-                                    <Input type="textarea" name="age" id="age" rows="1" placeholder=" -- select an option -- " onChange={this.onChange}/>
-
+                                    <Input type="select" name="age" id="age" placeholder=" -- select an option -- " onChange={this.onChange}>
+                                    <option disabled selected value> -- select an option -- </option>
+                                        <option>Under 18</option>
+                                        <option>18-24</option>
+                                        <option>25-34</option>
+                                        <option>35-44</option>
+                                        <option>45-54</option>
+                                        <option>55-64</option>
+                                        <option>Over 64</option>
+                                    </Input>
                                 <Label for="gender" style={{ marginTop: '1rem' }}> How do you identify your gender? </Label>
                                     <Input type="select" name="gender" id="gender" placeholder=" -- select an option -- " onChange={this.onChange}>
                                     <option disabled selected value> -- select an option -- </option>
