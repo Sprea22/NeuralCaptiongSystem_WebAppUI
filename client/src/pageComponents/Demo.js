@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Jumbotron} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
+import work_in_progress from './../media/work_in_progress.png';
 
 class Demo extends Component {
 
@@ -20,7 +21,7 @@ class Demo extends Component {
 
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
                     <Container fluid align="center">
-                        Work in progress.. 
+                        <img src={work_in_progress} height="200" alt={"Work in progres.."}/>
                     </Container>
                 </Jumbotron>
 

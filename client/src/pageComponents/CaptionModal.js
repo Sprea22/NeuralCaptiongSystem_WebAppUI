@@ -263,7 +263,6 @@ class CaptionModal extends Component {
                                 <div>
                                     A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
                                     It can also be attached also to a data chart in order to provide textual description and interpretation of the contents.
-                                    <br/>
                                     A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
                                     important features contained within the figure, and may sometimes also include interpretations of the data.
                                 </div>
@@ -284,7 +283,7 @@ class CaptionModal extends Component {
                                         }}
                                     /> 
                                     <br/><br/>
-                                    Few examples of general purpose images caption.
+                                    Examples of general purpose images caption.
                                 </Col>
                             </Row>
                               
@@ -328,7 +327,7 @@ class CaptionModal extends Component {
                                 <Modal isOpen={this.state.modal}className={this.props.className}>
                                     <ModalHeader>Thanks for your contribute!</ModalHeader>
                                     <ModalBody>
-                                        Thank you again for taking time to contribute to our research. We truly value the information you have provided.
+                                        Thank you again for taking the time to contribute to our research. We truly value the information you have provided.
                                         <br/><br/>
                                         Would you mind to submit an another caption? We would be extremely grateful with you!
                                         <br/><br/>
