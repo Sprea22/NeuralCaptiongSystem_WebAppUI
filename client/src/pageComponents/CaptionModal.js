@@ -329,7 +329,7 @@ class CaptionModal extends Component {
                                     <ModalBody>
                                         Thank you again for taking the time to contribute to our research. We truly value the information you have provided.
                                         <br/><br/>
-                                        Would you mind to submit an another caption? We would be extremely grateful with you!
+                                        If you have the time to submit an another caption we would be extremely grateful with you!
                                         <br/><br/>
                                         Note: you'll not have to insert your personal details again! 
                                     </ModalBody>
