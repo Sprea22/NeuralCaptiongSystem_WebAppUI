@@ -189,8 +189,8 @@ class CaptionModal extends Component {
                                         <option disabled selected value> -- select an option -- </option>
                                         <option>Nursery school to 8th grade</option>
                                         <option>High school</option>
-                                        <option>Bachelor’s degree</option>
-                                        <option>Master’s degree</option>
+                                        <option>Bachelor degree</option>
+                                        <option>Master degree</option>
                                         <option>Professional  degree</option>
                                         <option>Doctorate  degree</option>
                                     </Input>
@@ -325,16 +325,16 @@ class CaptionModal extends Component {
                                     Submit the form
                                 </Button>
                                 <Modal isOpen={this.state.modal}className={this.props.className}>
-                                    <ModalHeader>Thanks for your contribute!</ModalHeader>
+                                    <ModalHeader>Thanks for your contribution!</ModalHeader>
                                     <ModalBody>
                                         Thank you again for taking the time to contribute to our research. We truly value the information you have provided.
                                         <br/><br/>
-                                        If you have the time to submit an another caption we would be extremely grateful with you!
+                                        If you have time to submit an another caption it would be great for the research, and we would be extremely grateful with you!
                                         <br/><br/>
-                                        Note: you'll not have to insert your personal details again! 
+                                        <b/>Note: <b/>you will not have to insert your personal details again! 
                                     </ModalBody>
                                     <ModalFooter>
-                                        <Button color="primary" onClick={this.toggleAnotherCaption}>Submit an another caption</Button>{' '}
+                                        <Button color="primary" onClick={this.toggleAnotherCaption}>Submit a new caption</Button>{' '}
                                         <Button color="secondary" onClick={this.toggleExit}>Exit</Button>
                                     </ModalFooter>
                                 </Modal>
