@@ -173,8 +173,8 @@ class CaptionModal extends Component {
                                     <option disabled selected value> -- select an option -- </option>
                                         <option>Male</option>
                                         <option>Female</option>
-                                        <option>Prefer not to answer</option>
                                         <option>Others</option>
+                                        <option>Prefer not to answer</option>
                                     </Input>
 
                                 {this.state.gender === "Others" ? 
@@ -187,7 +187,7 @@ class CaptionModal extends Component {
                                 <Label for="study" style={{ marginTop: '1rem' }}>What is the highest degree or level of school you have completed? If currently enrolled, select the highest degree you are currently enrolled in: </Label>
                                     <Input type="select" name="study" id="study" onChange={this.onChange}>
                                         <option disabled selected value> -- select an option -- </option>
-                                        <option>Nursery school to 8th grade</option>
+                                        <option>8th grade or below</option>
                                         <option>High school</option>
                                         <option>Bachelor degree</option>
                                         <option>Master degree</option>
@@ -195,7 +195,7 @@ class CaptionModal extends Component {
                                         <option>Doctorate  degree</option>
                                     </Input>
 
-                                {this.state.study !== "Nursery school to 8th grade" & this.state.study !== "" ? 
+                                {this.state.study !== "8th grade or below" & this.state.study !== "" ? 
                                 (  <Container>    
                                         <Label for="study_field" style={{ marginTop: '1rem' }}> What is your main field of study?</Label>
                                         <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
@@ -272,18 +272,18 @@ class CaptionModal extends Component {
                                 <Col align="middle">
                                     <ImageZoom
                                         image={{
-                                            src: require('../media/captions.png'),
+                                            src: require('../media/captions.jpg'),
                                             alt: 'Pic not available',
                                             className: 'img',
                                             style: { width: '80%' }
                                         }}
                                         zoomImage={{
-                                            src:  require('../media/captions.png'),
+                                            src:  require('../media/captions.jpg'),
                                             alt: 'Pic not available'
                                         }}
                                     /> 
                                     <br/><br/>
-                                    Examples of general purpose images caption.
+                                    Examples of image captions.
                                 </Col>
                             </Row>
                               
@@ -294,7 +294,7 @@ class CaptionModal extends Component {
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
                                       <Label for="caption_content"> <h6> What is the following graph about?  
-                                          </h6> Please write in the following input field a caption about the graph reported on the right.
+                                          </h6> Please write in the following input field a caption about the graph shown on the right.
                                           Try to describe it using less than 75 words. </Label>
                                         <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
