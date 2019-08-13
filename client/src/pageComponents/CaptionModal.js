@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Jumbotron, Input, Alert, Button, Form, FormGroup, Label, Modal, ModalHeader, ModalBody, ModalFooter, Container} from 'reactstrap';
+import { Jumbotron, Input, Collapse,
+    Alert, Button, Form, FormGroup, 
+    Label, Modal, ModalHeader, ModalBody, 
+    ModalFooter, Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
@@ -21,23 +24,29 @@ class CaptionModal extends Component {
         getCaptions: PropTypes.func.isRequired,
         addCaption: PropTypes.func.isRequired,
       };
-    
-      state = {
-        errors: [],
-        initialized : false,
-        current_image_id : -1,
-        current_image_filename : "1.png",
-        caption_content : "",
-        age : "",
-        gender : "",
-        study : "",
-        study_field : "",
-        eng_certif : "",
-        eng_certif_res : "",
-        eng_nat_speaker : "",
-        start_time : "",
-        modal : false
-    }
+
+      constructor(props) {
+        super(props);
+        this.toggleTips = this.toggleTips.bind(this);
+        this.state = {
+            tipsSection: false,
+            errors: [],
+            initialized : false,
+            current_image_id : -1,
+            current_image_filename : "1.png",
+            caption_content : "",
+            age : "",
+            gender : "",
+            study : "",
+            study_field : "",
+            eng_certif : "",
+            eng_certif_res : "",
+            eng_nat_speaker : "",
+            start_time : "",
+            modal : false
+        }
+      }
+  
 
     getRandomChart() {
         var items = []
@@ -76,6 +85,10 @@ class CaptionModal extends Component {
     componentDidMount() {
         this.getRandomChart()
     }
+
+    toggleTips() {
+        this.setState(state => ({ tipsSection: !state.tipsSection }));
+      }
     
     onSubmit = e => {
         e.preventDefault()
@@ -257,38 +270,67 @@ class CaptionModal extends Component {
 
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem' }}>
                                 <h4> General information: </h4>   
-                            <hr/>
-                            <Row class="align-items-center" style={{ marginTop: '1rem' }}>
-                                <h6>What is a caption?</h6>
-                                <div>
-                                    A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
-                                    It can also be attached to a data chart in order to provide textual description and interpretation of the contents.
-                                    A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
-                                    important features contained within the figure, and may sometimes also include interpretations of the data.
-                                </div>
-                            </Row>
-                            <br/>
-                            <Row style={{ marginTop: '1rem' }}>
-                                <Col align="middle">
-                                    <ImageZoom
-                                        image={{
-                                            src: require('../media/captions.jpg'),
-                                            alt: 'Pic not available',
-                                            className: 'img',
-                                            style: { width: '80%' }
-                                        }}
-                                        zoomImage={{
-                                            src:  require('../media/captions.jpg'),
-                                            alt: 'Pic not available'
-                                        }}
-                                    /> 
-                                    <br/><br/>
-                                    Examples of image captions.
-                                </Col>
-                            </Row>
-                              
-                            <hr/>
-                                <h4 style={{ marginTop: '5rem' }}> Contribute to the research: </h4>   
+                                <hr/>
+
+                                <Row class="align-items-center" style={{ marginTop: '1rem' }}>
+                                    <h6>What is a caption?</h6>
+                                    <div>
+                                        A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
+                                        It can also be attached to a data chart in order to provide textual description and interpretation of the contents.
+                                        A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
+                                        important features contained within the figure, and may sometimes also include interpretations of the data.
+                                    </div>
+                                </Row>
+
+                                <br/>
+                                
+                                <Row style={{ marginTop: '1rem', marginBottom: '3rem' }}>
+                                    <Col align="middle">
+                                        <ImageZoom
+                                            image={{
+                                                src: require('../media/captions.jpg'),
+                                                alt: 'Pic not available',
+                                                className: 'img',
+                                                style: { width: '80%' }
+                                            }}
+                                            zoomImage={{
+                                                src:  require('../media/captions.jpg'),
+                                                alt: 'Pic not available'
+                                            }}
+                                        /> 
+                                        <br/><br/>
+                                        Examples of image captions.
+                                    </Col>
+                                </Row>
+                            
+                            <Button color="secondary" onClick={this.toggleTips} style={{ marginTop: '1rem', marginBottom: '1rem' }}> Show the tips.. </Button>
+                            <Collapse isOpen={this.state.tipsSection} name="tipsSection" id="tipsSection">
+                    
+                            <hr/> 
+                            <h6 style = {{ display: "inline-block"}}> Adverbs: </h6> dramatically, rapidly, hugely, massive, sharply, steeply, considerably, substantially, significantly, slightly, minimally, markedly.
+                                   <hr/> 
+                                    <Row class="align-items-center" style={{ marginTop: '1rem' }}>
+                                        <Col xs="3" align="left" >                 
+                                            <h6>Verbs - Upward:</h6>              
+                                            rise, increase, grow, climb, jump, surge, gain, soar, raise, advance, boost
+                                        </Col>
+                                        <Col xs="3" align="left" > 
+                                            <h6>Verbs - Downward:</h6> 
+                                            fall, decline, drop, slip, plunge, slide, lose, tumble, plummet, ease, decrease, reduce, dip, shrink
+                                        </Col>
+                                        <Col xs="3" align="left" > 
+                                            <h6>Verbs - Constant:</h6> 
+                                            remain stable, remain steady, stay constant, maintain the same level, no changes
+                                        </Col>
+                                        <Col xs="3" align="left" > 
+                                            <h6>Verbs - Upward/Downard:</h6>
+                                            fluctuate, oscillate, alternate <br/>
+                                        </Col>
+                                    </Row>
+                            </Collapse>
+
+                         <hr/>
+                            <h4> Contribute to the research: </h4>   
                             <hr/>
 
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
