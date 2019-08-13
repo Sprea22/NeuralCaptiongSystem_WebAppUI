@@ -262,7 +262,7 @@ class CaptionModal extends Component {
                                 <h6>What is a caption?</h6>
                                 <div>
                                     A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
-                                    It can also be attached also to a data chart in order to provide textual description and interpretation of the contents.
+                                    It can also be attached to a data chart in order to provide textual description and interpretation of the contents.
                                     A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
                                     important features contained within the figure, and may sometimes also include interpretations of the data.
                                 </div>
@@ -294,7 +294,7 @@ class CaptionModal extends Component {
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
                                       <Label for="caption_content"> <h6> What is the following graph about?  
-                                          </h6> Please write in the following input field a caption about the graph shown on the right.
+                                          </h6> Please write a caption about the graph shown on the right in the following input field.
                                           Try to describe it using less than 75 words. </Label>
                                         <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
