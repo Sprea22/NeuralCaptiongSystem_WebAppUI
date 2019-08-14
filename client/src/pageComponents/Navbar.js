@@ -28,7 +28,7 @@ class NavbarApp extends Component {
           <Container fluid>
             <Row>
               <Col xs="12" align="center">        
-                <h3> "A Deep Learning approach for data chart images Auto Captioning"</h3>
+                <h3> "A Deep Learning Approach for Data Chart Images Auto Captioning"</h3>
               </Col>
             </Row>
 
