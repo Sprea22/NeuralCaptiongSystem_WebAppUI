@@ -338,7 +338,7 @@ class CaptionModal extends Component {
                             <hr/> 
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
-                                        Please write a caption about the shown graph in the following input field.  <br/><br/>
+                                        Please write a caption about the shown graph in the following input field, describing its content and the features you consider most important. <br/><br/>
                                         <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
                                         {this.state.caption_content.split(" ").length === 2 & this.state.start_time === "" ?
