@@ -23,7 +23,6 @@ router.post('/', (req, res) => {
     age : req.body.age,
     gender : req.body.gender, 
     study : req.body.study,
-    study_field : req.body.gstudy_fieldender,
     eng_certif : req.body.eng_certif,
     eng_certif_res : req.body.eng_certif_res,
     eng_nat_speaker : req.body.eng_nat_speaker,

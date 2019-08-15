@@ -27,10 +27,6 @@ const CaptionSchema = new Schema({
     type: String,
   },
 
-  study_field: {
-    type: String,
-  },
-
   eng_certif: {
     type: String,
   },

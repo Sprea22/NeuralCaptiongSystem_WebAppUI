@@ -5,10 +5,10 @@ function formValidation(newCaption) {
     // in a signle array
     const errors = [];
     console.log("Validating the caption form..")
-    const {caption_content, age, gender, study, study_field, eng_certif, eng_certif_res, eng_nat_speaker} = newCaption;
+    const {caption_content, age, gender, study, eng_certif, eng_certif_res, eng_nat_speaker} = newCaption;
 
     var cond1 = age === "" || gender === "" || study === "" || eng_nat_speaker === ""
-    var cond2 = study !== "" && study !== "Nursery school to 8th grade" && study_field === ""
+    var cond2 = study !== ""
     var cond3 = eng_nat_speaker === "No" && ( eng_certif === "" ||  eng_certif_res === "")
 
     if(cond1 || cond2 || cond3) {

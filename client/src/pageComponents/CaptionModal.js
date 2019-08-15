@@ -4,12 +4,13 @@ import { Jumbotron, Input, Collapse,
     Label, Modal, ModalHeader, ModalBody, 
     ModalFooter, Container} from 'reactstrap';
 import { connect } from 'react-redux';
-import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
 import ImageZoom from 'react-medium-image-zoom'
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import unimib from '../media/UNIMIB-LOGO.png';
+import ubc from '../media/UBC-LOGO.png';
 import {getCaptions, addCaption} from './../actions/captionActions';
 import formValidation from './FormValidation.js';
 
@@ -38,7 +39,6 @@ class CaptionModal extends Component {
             age : "",
             gender : "",
             study : "",
-            study_field : "",
             eng_certif : "",
             eng_certif_res : "",
             eng_nat_speaker : "",
@@ -113,7 +113,6 @@ class CaptionModal extends Component {
             age :  this.state.age,
             gender :  this.state.gender,
             study : this.state.study,
-            study_field : this.state.study_field,
             eng_certif : this.state.eng_certif,
             eng_certif_res : this.state.eng_certif_res,
             eng_nat_speaker : this.state.eng_nat_speaker,
@@ -156,19 +155,28 @@ class CaptionModal extends Component {
 
         return (
             <div>
-            <NavbarApp/>
-                <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-                <Container fluid align="center">
-                    <h2>Contribute to the research!</h2>
-                    </Container>
+                <Jumbotron style={{backgroundColor: '#f2f2f2' }}>
+                    <div align="center"> <h3>Contribute to this research!</h3> </div>
+                    <hr></hr>
+                    <Row>
+                        <Col xs="12" align="center">        
+                            <h5> "A Deep Learning Approach for Data Chart Images Auto Captioning"</h5>
+                        </Col>
+                        </Row>
+
+                        <Row class="align-items-center">
+                        <Col xs="12" align="center">   
+                        Giuseppe Carenini**, Raimondo Schettini*, Paolo Napoletano*, Andrea Spreafico*
+                        </Col>
+                    </Row>
                 </Jumbotron>
 
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-                    
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem', marginBottom: '-1rem'}}>
-                                <h4> Personal Details: </h4>    
+                                <h4> Personal Details </h4>    
+                                <hr/>
 
                                 <Label for="age">What is your age?</Label>
                                     <Input type="select" name="age" id="age" placeholder=" -- select an option -- " onChange={this.onChange}>
@@ -192,8 +200,8 @@ class CaptionModal extends Component {
 
                                 {this.state.gender === "Others" ? 
                                 (  <Container>    
-                                        <Label for="study_field" style={{ marginTop: '1rem' }}> You can specify here your gender: </Label>
-                                        <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
+                                        <Label for="gender" style={{ marginTop: '1rem' }}> You can specify here your gender: </Label>
+                                        <Input type="textarea" name="gender" id="gender" rows="1" onChange={this.onChange}></Input>
                                     </Container>
                                 ) : (<Container/>)}
 
@@ -207,13 +215,6 @@ class CaptionModal extends Component {
                                         <option>Professional  degree</option>
                                         <option>Doctorate  degree</option>
                                     </Input>
-
-                                {this.state.study !== "8th grade or below" & this.state.study !== "" ? 
-                                (  <Container>    
-                                        <Label for="study_field" style={{ marginTop: '1rem' }}> What is your main field of study?</Label>
-                                        <Input type="textarea" name="study_field" id="study_field" rows="1" onChange={this.onChange}></Input>
-                                    </Container>
-                                ) : (<Container/>)}
 
                                 <Label for="eng_nat_speaker" style={{ marginTop: '1rem' }}> Are you a native English speaker? </Label>
                                     <Input type="select" name="eng_nat_speaker" id="eng_nat_speaker" onChange={this.onChange}>
@@ -269,46 +270,51 @@ class CaptionModal extends Component {
                             </Jumbotron>
 
                             <Jumbotron style={{ marginTop: '-2rem', marginLeft: '1rem', marginRight: '1rem' }}>
-                                <h4> General information: </h4>   
+                                <h4> About the task </h4>   
                                 <hr/>
-
-                                <Row class="align-items-center" style={{ marginTop: '1rem' }}>
-                                    <h6>What is a caption?</h6>
-                                    <div>
-                                        A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
-                                        It can also be attached to a data chart in order to provide textual description and interpretation of the contents.
-                                        A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
-                                        important features contained within the figure, and may sometimes also include interpretations of the data.
-                                    </div>
-                                </Row>
+                                You can contribute to this research creating a caption about a line chart figure.
+                                <br/> <br/>
+                                <h6>What is a caption?</h6>
+                                <div>
+                                    A caption is a title or brief explanation appended to an article, illustration, cartoon, or poster. 
+                                    It can also be attached to a data chart in order to provide textual description and interpretation of the contents.
+                                    A caption should be concise but comprehensive. It should describes the data shown, draw attention to 
+                                    important features contained within the figure, and may sometimes also include interpretations of the data.
+                                </div>
 
                                 <br/>
-                                
-                                <Row style={{ marginTop: '1rem', marginBottom: '3rem' }}>
-                                    <Col align="middle">
-                                        <ImageZoom
-                                            image={{
-                                                src: require('../media/captions.jpg'),
-                                                alt: 'Pic not available',
-                                                className: 'img',
-                                                style: { width: '80%' }
-                                            }}
-                                            zoomImage={{
-                                                src:  require('../media/captions.jpg'),
-                                                alt: 'Pic not available'
-                                            }}
-                                        /> 
-                                        <br/><br/>
-                                        Examples of image captions.
-                                    </Col>
-                                </Row>
-                            
-                            <Button color="secondary" onClick={this.toggleTips} style={{ marginTop: '1rem', marginBottom: '1rem' }}> Show the tips.. </Button>
+                                <div align="center">
+                                    <ImageZoom
+                                        image={{
+                                            src: require('../media/captions.jpg'),
+                                            alt: 'Pic not available',
+                                            className: 'img',
+                                            style: { width: '80%' }
+                                        }}
+                                        zoomImage={{
+                                            src:  require('../media/captions.jpg'),
+                                            alt: 'Pic not available'
+                                        }}
+                                    /> 
+                                    <br/><br/>
+                                    Examples of image captions.
+                                </div>
+    
+
+                            <div style={{marginTop : "5rem"}}> <h4> Let's contribute to this research! </h4>
+                            <hr></hr>
+                            <b>Important notes:</b> <br/>
+                            - Try to describe it using less than 75 words, usually 50-60 words are enough. <br/>
+                            - It would be extremely appreciated if you can accomplish the task more than once: 3 or more times is ideal. <br/>
+                            - Once you submit the form, if you click on "Submit a new caption" the system will display you a new data chart figure to describe. <br/> 
+                            - Click on the data chart image to zoom in/out. <br/>
+                            - Click on the following button if you would like to see some vocabulary which might help you attending the task. <br/> </div>
+                            <br/>
+                            <Button color="secondary" onClick={this.toggleTips}> Show vocabularies.. </Button>
                             <Collapse isOpen={this.state.tipsSection} name="tipsSection" id="tipsSection">
-                    
-                            <hr/> 
-                            <h6 style = {{ display: "inline-block"}}> Adverbs: </h6> dramatically, rapidly, hugely, massive, sharply, steeply, considerably, substantially, significantly, slightly, minimally, markedly.
-                                   <hr/> 
+                        <hr/> 
+                            <h6 style = {{marginTop: '1rem', display: "inline-block"}}> Adverbs: </h6> dramatically, rapidly, hugely, massive, sharply, steeply, considerably, substantially, significantly, slightly, minimally, markedly.
+                                <hr/> 
                                     <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                         <Col xs="3" align="left" >                 
                                             <h6>Verbs - Upward:</h6>              
@@ -329,15 +335,10 @@ class CaptionModal extends Component {
                                     </Row>
                             </Collapse>
 
-                         <hr/>
-                            <h4> Contribute to the research: </h4>   
-                            <hr/>
-
+                            <hr/> 
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
                                     <Col xs="6" align="left" >
-                                      <Label for="caption_content"> <h6> What is the following graph about?  
-                                          </h6> Please write a caption about the graph shown on the right in the following input field.
-                                          Try to describe it using less than 75 words. </Label>
+                                        Please write a caption about the shown graph in the following input field.  <br/><br/>
                                         <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
                                         {this.state.caption_content.split(" ").length === 2 & this.state.start_time === "" ?
@@ -385,7 +386,26 @@ class CaptionModal extends Component {
                             </FormGroup>
                         </Form>
             </Jumbotron>
-            </div>
+
+            <Jumbotron style={{backgroundColor: '#f2f2f2' }}>
+          <Container fluid>
+            <Row class="align-items-center">
+              <Col xs="4" align="center">
+              <img src={unimib} alt={"No pic available"}  width="50" /><br/><br/>
+                <b> University of Milano Bicocca </b><br/>
+                Imaging and Vision Laboratory
+              </Col>
+              <Col xs="4" align="center">         
+              </Col>
+              <Col xs="4" align="center"> 
+                <img src={ubc} alt={"No pic available"}  width="50" /><br/><br/>
+                <b> University of British Columbia </b><br/>
+                Computational Intelligence Lab
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
+        </div>
         );
     }
   }
