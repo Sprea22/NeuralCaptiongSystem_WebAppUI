@@ -31,13 +31,13 @@ class Home extends Component {
                 <br/><br/><br/>
                   <ImageZoom
                       image={{
-                          src: require('../media/basic_problem.png'),
+                          src: require('../media/Images/basic_problem.png'),
                           alt: 'Pic not available',
                           className: 'img',
                           style: { width: '100%' }
                       }}
                       zoomImage={{
-                          src:  require('../media/basic_problem.png'),
+                          src:  require('../media/Images/basic_problem.png'),
                           alt: 'Pic not available'
                       }}
                       />   
@@ -62,13 +62,13 @@ class Home extends Component {
                 <Col xs="6" align="center"> 
                   <ImageZoom
                       image={{
-                          src: require('../media/LSTM.png'),
+                          src: require('../media/Images/LSTM.png'),
                           alt: 'Pic not available',
                           className: 'img',
                           style: { width: '60%' }
                       }}
                       zoomImage={{
-                          src:  require('../media/LSTM.png'),
+                          src:  require('../media/Images/LSTM.png'),
                           alt: 'Pic not available'
                       }}
                       />   

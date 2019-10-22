@@ -3,8 +3,8 @@ import { Container, Jumbotron,  Row, Col, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 
-import myJson from '../media/Plots_Information.json';
-import output_captions from '../media/system_output_captions.json';
+import myJson from '../media/JSON_Files/Plots_Information.json';
+import output_captions from '../media/JSON_Files/system_output_captions.json';
 import ImageZoom from 'react-medium-image-zoom'
 
 class Demo extends Component {

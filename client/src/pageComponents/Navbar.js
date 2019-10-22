@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { Link} from 'react-router-dom';
 import Fab from '@material-ui/core/Fab';
 
-import unimib from '../media/UNIMIB-LOGO.png';
-import ubc from '../media/UBC-LOGO.png';
+import unimib from '../media/Images/UNIMIB-LOGO.png';
+import ubc from '../media/Images/UBC-LOGO.png';
 
 
 class NavbarApp extends Component {

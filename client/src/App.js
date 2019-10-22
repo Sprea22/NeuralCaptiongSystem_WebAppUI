@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';  
 import Home from './pageComponents/Home';
-
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-
-import 'bootstrap/dist/css/bootstrap.min.css';  
 import './App.css';
-import { BrowserRouter, Route} from 'react-router-dom';
+
 import PlotsCollection from './pageComponents/PlotsCollection';
 import CaptionModal from './pageComponents/CaptionModal';
 import Demo from './pageComponents/Demo';

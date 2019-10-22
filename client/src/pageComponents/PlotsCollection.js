@@ -3,7 +3,7 @@ import { Container, Jumbotron, ListGroup, ListGroupItem} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import { Row, Col } from 'reactstrap';
-import myJson from '../media/Plots_Information.json';
+import myJson from '../media/JSON_Files/Plots_Information.json';
 import ImageZoom from 'react-medium-image-zoom'
 
 class PlotsCollection extends Component {
@@ -15,7 +15,6 @@ class PlotsCollection extends Component {
             items.push(<li key={i}>{i + ".png"}</li>)
           }
 
-   
         return (
             <div>
 

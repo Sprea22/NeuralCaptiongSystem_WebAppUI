@@ -9,8 +9,8 @@ import ImageZoom from 'react-medium-image-zoom'
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import unimib from '../media/UNIMIB-LOGO.png';
-import ubc from '../media/UBC-LOGO.png';
+import unimib from '../media/Images/UNIMIB-LOGO.png';
+import ubc from '../media/Images/UBC-LOGO.png';
 import {getCaptions, addCaption} from './../actions/captionActions';
 import formValidation from './FormValidation.js';
 
@@ -286,13 +286,13 @@ class CaptionModal extends Component {
                                 <div align="center">
                                     <ImageZoom
                                         image={{
-                                            src: require('../media/captions.jpg'),
+                                            src: require('../media/Images/captions.jpg'),
                                             alt: 'Pic not available',
                                             className: 'img',
                                             style: { width: '80%' }
                                         }}
                                         zoomImage={{
-                                            src:  require('../media/captions.jpg'),
+                                            src:  require('../media/Images/captions.jpg'),
                                             alt: 'Pic not available'
                                         }}
                                     /> 
