@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 
 import myJson from '../media/JSON_Files/Plots_Information.json';
-import output_captions from '../media/JSON_Files/system_output_captions.json';
+import output_captions from '../media/JSON_Files/Captions_outputs.json';
+import output_sentences from '../media/JSON_Files/Sentences_outputs.json';
 import ImageZoom from 'react-medium-image-zoom'
 
 class Demo extends Component {
@@ -27,15 +28,15 @@ class Demo extends Component {
     
     sentenceGen = e => {
       // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var new_sentence_idx = 1
-      var new_sentence = output_captions[this.state.selected_key]["sentence"][new_sentence_idx]
+      var new_sentence_idx = "Greedy"
+      var new_sentence = output_sentences[this.state.selected_key][new_sentence_idx]
       this.setState(state => ({ output_sentence: new_sentence }));
     }
 
     captionGen = e => {
       // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var new_caption_idx = 1
-      var new_caption = output_captions[this.state.selected_key]["caption"][new_caption_idx]
+      var new_caption_idx = "Greedy"
+      var new_caption = output_captions[this.state.selected_key][new_caption_idx]
       this.setState(state => ({ output_caption: new_caption }));
     }
     render() {
