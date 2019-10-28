@@ -17,31 +17,36 @@ class Demo extends Component {
           output_sentence: "",
           output_caption: "",
           items: [],
-          selected_key: -1          
+          selected_key: ""        
       };
     }
 
     handleUp = event => {
       var new_id = event.target.id 
-      this.setState(state => ({ selected_key: new_id }));
+      this.setState(state => ({ output_sentence: "" }));
+      this.setState(state => ({ output_caption: "" }));
+      this.setState(state => ({ selected_key: new_id.toString() }));
     }
     
     sentenceGen = e => {
       // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var new_sentence_idx = "Greedy"
+      var sentences = ["S#1", "S#2", "S#3"]
+      var new_sentence_idx = sentences[Math.floor(Math.random()*sentences.length)];
+      console.log(new_sentence_idx)
       var new_sentence = output_sentences[this.state.selected_key][new_sentence_idx]
       this.setState(state => ({ output_sentence: new_sentence }));
     }
 
     captionGen = e => {
       // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var new_caption_idx = "Greedy"
+      var sentences = ["C#1", "C#2", "C#3"]
+      var new_caption_idx = sentences[Math.floor(Math.random()*sentences.length)];
       var new_caption = output_captions[this.state.selected_key][new_caption_idx]
       this.setState(state => ({ output_caption: new_caption }));
     }
     render() {
         
-        while(this.state.items.length < 10){
+        while(this.state.items.length < 5){
             var r = Math.floor(Math.random()*100) + 1;
             if(this.state.items.indexOf(r) === -1) this.state.items.push(<li key={r}>{r + ".png"}</li>)
         }
@@ -66,11 +71,11 @@ class Demo extends Component {
                             src: require('../media/Plots_Collection/' + key + '.png'),
                             alt: 'Pic not available',
                             className: 'img',
-                            style: { width: '200px', padding: '10px' }
+                            style: { width: '100%' }
                         }}
                     />
                     <br/>
-                    <Button id={key} className='ml-3'color={this.state.colorButton} onClick={this.handleUp} >Line chart #{key}</Button>
+                    <Button id={key} className='ml-3'color={this.state.colorButton} onClick={this.handleUp}>Line chart #{key}</Button>
                 </Container>
                 </Col>
                 ))}
@@ -78,57 +83,51 @@ class Demo extends Component {
             </Container>
 
             <Container>
-            <br/>
-            <hr/>
-            <br/>
-            {this.state.selected_key !== -1 ? (
-            <Row class="align-items-center">
-            <Col xs="6" align="left"> 
-                    <div> 
-                        <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
-                        <li> <b> Data Freq: </b> monthly </li>
-                        <li> <b> Year: </b> {myJson[this.state.selected_key]["year"]} </li>
-                        <li> <b> Location: </b> {myJson[this.state.selected_key]["geo"]} </li>
-                        <li> <b> Unit of Measure: </b> {myJson[this.state.selected_key]["unit_of_measure"]} </li>
-                    </div>
-                </Col>
-                <Col xs="6" align="left">
-
-                        <ImageZoom
-                        image={{
-                            src: require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
-                            alt: 'Pic not available',
-                            className: 'img',
-                            style: { width: '70%' }
-                        }}
-                        zoomImage={{
-                            src:  require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
-                            alt: 'Pic not available'
-                        }}
+              <br/><hr/><br/>
+              {this.state.selected_key !== "" ? (
+                <Row class="align-items-center">
+                  <Col xs="6" align="left"> 
+                      <div> 
+                          <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
+                          <li> <b> Data Freq: </b> monthly </li>
+                          <li> <b> Year: </b> {myJson[this.state.selected_key]["year"]} </li>
+                          <li> <b> Location: </b> {myJson[this.state.selected_key]["geo"]} </li>
+                          <li> <b> Unit of Measure: </b> {myJson[this.state.selected_key]["unit_of_measure"]} </li>
+                      </div>
+                  </Col>
+                  <Col xs="6" align="left">
+                    <ImageZoom
+                      image={{
+                          src: require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
+                          alt: 'Pic not available',
+                          className: 'img',
+                          style: { width: '70%' }
+                      }}
+                      zoomImage={{
+                          src:  require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
+                          alt: 'Pic not available'
+                      }}
                     />
-                </Col>
+                  </Col>
                 </Row>)
-               
-                : (<div> </div>)}
-         
-            </Container>  
+              : (<div> </div>)}
+            </Container>
         </Jumbotron>
 
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-        <Row>
-          <Col align="center">        
-            <Button className='ml-3' onClick={this.sentenceGen} > Sentence Generation</Button>
-              <hr/>
-              {this.state.output_sentence}
-          </Col>
+          <Row>
+            <Col align="center">        
+              <Button className='ml-3' onClick={this.sentenceGen} > Sentence Generation</Button>
+                <hr/>
+                {this.state.output_sentence}
+            </Col>
 
-          <Col align="center">     
-            <Button className='ml-3' onClick={this.captionGen} > Caption Generation</Button>
-            <hr/>
-            {this.state.output_caption}
-          </Col>
-          
-        </Row>
+            <Col align="center">     
+              <Button className='ml-3' onClick={this.captionGen} > Caption Generation</Button>
+                <hr/>
+                {this.state.output_caption}
+            </Col>
+          </Row>
         </Jumbotron>
 
         </div>
