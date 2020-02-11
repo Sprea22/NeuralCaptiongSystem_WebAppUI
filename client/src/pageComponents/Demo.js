@@ -29,39 +29,48 @@ class Demo extends Component {
     }
     
     sentenceGen = e => {
-      // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var sentences = ["S#1", "S#2", "S#3"]
-      var new_sentence_idx = sentences[Math.floor(Math.random()*sentences.length)];
-      console.log(new_sentence_idx)
-      var new_sentence = output_sentences[this.state.selected_key][new_sentence_idx]
-      this.setState(state => ({ output_sentence: new_sentence }));
+      if(this.state.selected_key !== "") {
+        // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
+        var sentences = ["S#1", "S#2", "S#3"]
+        var new_sentence_idx = sentences[Math.floor(Math.random()*sentences.length)];
+        var new_sentence = output_sentences[this.state.selected_key][new_sentence_idx]
+        this.setState(state => ({ output_sentence: new_sentence }));
+      }
     }
 
     captionGen = e => {
-      // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
-      var sentences = ["C#1", "C#2", "C#3"]
-      var new_caption_idx = sentences[Math.floor(Math.random()*sentences.length)];
-      var new_caption = output_captions[this.state.selected_key][new_caption_idx]
-      this.setState(state => ({ output_caption: new_caption }));
+      if(this.state.selected_key !== "") {
+        // random number between the 0 or 1 and the len of output_captions[this.state.selected_key]["caption"]
+        var sentences = ["C#1", "C#2", "C#3"]
+        var new_caption_idx = sentences[Math.floor(Math.random()*sentences.length)];
+        var new_caption = output_captions[this.state.selected_key][new_caption_idx]
+        this.setState(state => ({ output_caption: new_caption }));
+      }
     }
     render() {
-        
+        this.state.items = []
+        var ids = [13, 32, 37, 78, 93]
+        for (var i = 0; i < ids.length; i++) {
+            var item_idx = ids[i]
+            this.state.items.push(<li key={item_idx}>{item_idx + ".png"}</li>)
+          }
+
+        /* Random Sequence of indexes
+
         while(this.state.items.length < 5){
             var r = Math.floor(Math.random()*100) + 1;
             if(this.state.items.indexOf(r) === -1) this.state.items.push(<li key={r}>{r + ".png"}</li>)
         }
         
-        /* Sequence of indexes
-        var items = []
-        for (var i = 1; i < 6; i++) {
-            items.push(<li key={i}>{i + ".png"}</li>)
-          }
         */
         return (
         <div>
         <NavbarApp/>
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
             <Container fluid align="center">
+              <h2> Select one of the following line chart images </h2> 
+              <h4> (click on the button) </h4> 
+              <br></br>
             <Row>
             {this.state.items.map(({key}) => (
                 <Col>        
@@ -114,7 +123,12 @@ class Demo extends Component {
             </Container>
         </Jumbotron>
 
+        {this.state.selected_key !== ""  ? (
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
+          <Container fluid align="center">
+                <h2> Click here to generate a Sentece or Caption about the line chart image! </h2> 
+                <br></br>
+          </Container>
           <Row>
             <Col align="center">        
               <Button className='ml-3' onClick={this.sentenceGen} > Sentence Generation</Button>
@@ -129,10 +143,11 @@ class Demo extends Component {
             </Col>
           </Row>
         </Jumbotron>
-
+        ) 
+        : (<Container/>)}
+        
         </div>
-
-        );
+      );
     }
   }
   

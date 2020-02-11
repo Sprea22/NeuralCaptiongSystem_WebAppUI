@@ -9,6 +9,7 @@ import ImageZoom from 'react-medium-image-zoom'
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import NavbarApp from './Navbar.js';
 import unimib from '../media/Images/UNIMIB-LOGO.png';
 import ubc from '../media/Images/UBC-LOGO.png';
 import {getCaptions, addCaption} from './../actions/captionActions';
@@ -155,21 +156,8 @@ class CaptionModal extends Component {
 
         return (
             <div>
-                <Jumbotron style={{backgroundColor: '#f2f2f2' }}>
-                    <div align="center"> <h3>Contribute to this research!</h3> </div>
-                    <hr></hr>
-                    <Row>
-                        <Col xs="12" align="center">        
-                            <h5> "A Deep Learning Approach for Data Chart Images Auto Captioning"</h5>
-                        </Col>
-                        </Row>
 
-                        <Row class="align-items-center">
-                        <Col xs="12" align="center">   
-                        Giuseppe Carenini**, Raimondo Schettini*, Paolo Napoletano*, Andrea Spreafico*
-                        </Col>
-                    </Row>
-                </Jumbotron>
+                <NavbarApp/>
 
                 <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
                         <Form onSubmit={this.onSubmit}>
