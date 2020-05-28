@@ -1,4 +1,4 @@
-## Data chart images - captions collector web app
+## Source Code for Captions Collector Web Application
 
 ### Project:
 "Neural Data-Driven Captioning of Time-Series Line Charts"
