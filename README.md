@@ -1,4 +1,4 @@
-**Data chart images - captions collector web app**
+## Data chart images - captions collector web app**
 
 **Project:** 
 ""A Deep Learning approach for data chart images Auto Captioning"
