@@ -81,9 +81,9 @@ class Home extends Component {
                   </li>
               </ul>
           </div>  
-          <br/>
           <link rel="stylesheet" href="https://dl.acm.org/specs/products/acm/widgets/authorizer/scss/style.css" />
           <Row  class="align-items-center">
+          <br/><br/>
             <h4>Aim of the research</h4>
               <hr/>
               <p> 
