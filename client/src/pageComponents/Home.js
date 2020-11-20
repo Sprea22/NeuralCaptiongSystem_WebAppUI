@@ -18,7 +18,7 @@ class Home extends Component {
           <Row  class="align-items-center">
             <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
-
+              <div class="multi-search multi-search--issue-item">
               <ul class="rlist ">
                   <li class="grid-item separated-block--dashed--bottom">
                       <div class="issue-item clearfix">
@@ -81,6 +81,7 @@ class Home extends Component {
                       </div>
                   </li>
               </ul>
+          </div>
           <link rel="stylesheet"
               href="https://dl.acm.org/specs/products/acm/widgets/authorizer/scss/style.css" />
 
