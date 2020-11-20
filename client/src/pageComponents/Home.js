@@ -15,6 +15,7 @@ class Home extends Component {
 
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
           <Container fluid>
+          <Row  class="align-items-center">
             <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
               <div class="multi-search multi-search--issue-item">
@@ -81,8 +82,9 @@ class Home extends Component {
                   </li>
               </ul>
           </div>  
-          <Row  class="align-items-center">
+          </Row>
           <br/><br/>
+          <Row  class="align-items-center">
             <h4>Aim of the research</h4>
               <hr/>
               <p> 
