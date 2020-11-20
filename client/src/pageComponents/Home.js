@@ -17,7 +17,7 @@ class Home extends Component {
           <Container fluid>
             <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
-              <div class="multi-search multi-search--issue-item">
+              <div class="multi-search multi-search--issue-item" style="min-height: 40vh;">
               <ul class="rlist ">
                   <li class="grid-item separated-block--dashed--bottom">
                       <div class="issue-item clearfix">
