@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i&display=swap');
+
+.multi-search {
+    background: #fff;
+    color: #333;
+    font-family: Merriweather Sans, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    min-height: 40vh;
+    padding: 0 12px;
+}
+
+.multi-search .issue-item__content {
+    position: relative;
+}
+
+.multi-search h1,
+.multi-search h2,
+.multi-search h3,
+.multi-search h4,
+.multi-search h5,
+.multi-search h6 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.multi-search h5 {
+    font-size: 16px;
+}
+
+.multi-search a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.multi-search img {
+    border-style: none;
+    max-width: 100%;
+}
+
+.multi-search .rlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.multi-search .rlist--inline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.multi-search .rlist--inline>li {
+    display: inline-block;
+}
+
+.multi-search .pull-left {
+    float: left;
+}
+
+.multi-search .pull-right {
+    float: right;
+}
+
+.multi-search .bold,
+.multi-search b,
+.multi-search strong {
+    font-weight: 600;
+}
+
+.multi-search .visibility-hidden {
+    height: 0;
+    display: inline-block;
+    visibility: hidden;
+    position: absolute;
+    left: -999em;
+}
+
+.multi-search .get-access {
+    background-color: #5aab00;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 22px 8px 23px;
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+.multi-search .loa {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #757575;
+}
+
+.multi-search .loa li {
+    line-height: 32px;
+}
+
+.multi-search .loa a:hover {
+    color: #5c5c5c;
+}
+
+.multi-search .author-picture {
+    margin-right: 5px;
+    vertical-align: middle;
+    height: 24px;
+    box-sizing: content-box;
+    border-radius: 50%;
+}
+
+.multi-search .loa img {
+    filter: grayscale(100%);
+    transition: all 200ms ease-in-out;
+}
+
+.multi-search .loa a:hover img {
+    filter: grayscale(0);
+}
+
+.multi-search .author-picture.author-picture {
+    width: 24px;
+    padding-right: 0;
+}
+
+.multi-search .issue-item__detail {
+    color: #757575;
+    margin: 10px 0;
+}
+
+
+.multi-search .dot-separator:before {
+    content: '•';
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: 600;
+    font-size: 19px;
+    vertical-align: middle;
+}
+
+.multi-search .issue-item__abstract {
+    margin-bottom: 10px;
+}
+
+
+.multi-search .issue-item__title {
+    color: #2189ca;
+    font-weight: 500;
+    font-family: Merriweather, serif;
+    margin-bottom: 10px;
+}
+
+.multi-search .issue-item {
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, .1);
+    background: #fff;
+    word-break: break-word;
+    padding-bottom: 50px;
+}
+
+.multi-search .issue-item__citation {
+    margin-bottom: 15px;
+    vertical-align: top;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.multi-search .issue-item__citation .issue-heading {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.multi-search .open-access {
+    color: orange;
+}
+
+.multi-search .free-access {
+    color: green;
+}
+
+.multi-search .no-access {
+    color: red;
+}
+
+.multi-search .clearfix:after,
+.multi-search .section__separator:after,
+.multi-search .separated-block:after,
+.multi-search .card--dark:after,
+.multi-search .alert__format:after,
+.multi-search .events-browse__list-labels:after,
+.multi-search .latest-proceeding__info:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.multi-search .btn {
+    background-color: #333;
+    color: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    clear: both;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 8px 10px;
+    border: none;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.multi-search .btn.blue {
+    color: #fff;
+    background-color: #2189ca;
+}
+
+
+.multi-search .btn.red {
+    color: #fff;
+    background: #eb5757;
+}
+
+.multi-search .btn--icon,
+.multi-search .btn--icon--dark {
+    margin: 0 3px;
+    color: #757575;
+    font-size: 17px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 28px;
+}
+
+
+.multi-search [class*=simple-tooltip] {
+    position: relative;
+    display: inline-block;
+}
+
+.multi-search .tooltip:hover .tooltip__body,
+.multi-search .tooltip:focus .tooltip__body {
+    border: none;
+    top: 25px;
+    left: 0;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.multi-search .issue-item__citation {
+    display: none;
+}
+
+.multi-search .bibliometrics-iframe {
+    position: absolute;
+    border: 0;
+    z-index: 10;
+    width: 100% !important;
+    height: 45px !important;
+}
+
+.multi-search .hidden {
+    display: none !important;
+}

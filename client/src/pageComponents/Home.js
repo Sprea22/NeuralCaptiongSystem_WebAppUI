@@ -5,7 +5,7 @@ import NavbarApp from './Navbar.js';
 import ImageZoom from 'react-medium-image-zoom'
 
 
-
+  
 class Home extends Component {
 
     render() {
@@ -18,9 +18,9 @@ class Home extends Component {
           <Container fluid>
             <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
-              <link rel="stylesheet" href="https://dl.acm.org/specs/products/acm/widgets/authorizer/scss/style.css" />
+              <link rel="stylesheet" href="./../Publication-design.css" />
                 
-              <div class="multi-search multi-search--issue-item" style="min-height: 40vh;">
+              <div class="multi-search multi-search--issue-item">
               <ul class="rlist ">
                   <li class="grid-item separated-block--dashed--bottom">
                       <div class="issue-item clearfix">
