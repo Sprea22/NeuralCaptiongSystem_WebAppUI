@@ -3,8 +3,7 @@ import { Container, Jumbotron, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import NavbarApp from './Navbar.js';
 import ImageZoom from 'react-medium-image-zoom'
-
-
+import "./../Publication-design.css"
   
 class Home extends Component {
 
@@ -18,8 +17,6 @@ class Home extends Component {
           <Container fluid>
             <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
-              <link rel="stylesheet" href="./../Publication-design.css" />
-                
               <div class="multi-search multi-search--issue-item">
               <ul class="rlist ">
                   <li class="grid-item separated-block--dashed--bottom">
