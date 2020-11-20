@@ -16,73 +16,73 @@ class Home extends Component {
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
           <Container fluid>
           <Row  class="align-items-center">
-            <h4>xAVI Confernece 2020 - ACM Publication</h4>
+            <h4>AVI Conference 2020 - ACM Publication</h4>
               <hr/>
 
-                      <div class="multi-search multi-search--issue-item">
-            <ul class="rlist ">
-                <li class="grid-item separated-block--dashed--bottom">
-                    <div class="issue-item clearfix">
-                        <div class="issue-item__citation">
-                            <div class="issue-heading">short-paper</div>
-                        </div>
-                        <div class="issue-item__content">
-                            <h5 class="issue-item__title"><a
-                                    href="https://dl.acm.org/doi/10.1145/3399715.3399829?cid=99659584207">Neural
-                                    Data-Driven Captioning of Time-Series Line
-                                    Charts</a></h5>
+              <ul class="rlist ">
+                  <li class="grid-item separated-block--dashed--bottom">
+                      <div class="issue-item clearfix">
+                          <div class="issue-item__citation">
+                              <div class="issue-heading">short-paper</div>
+                          </div>
+                          <div class="issue-item__content">
+                              <h5 class="issue-item__title"><a
+                                      href="https://dl.acm.org/doi/10.1145/3399715.3399829?cid=99659584207">Neural
+                                      Data-Driven Captioning of Time-Series Line
+                                      Charts</a></h5>
 
-                            <ul class="rlist--inline loa truncate-list"
-                                title="list of authors" data-lines="2">
-                                <li><a href="https://dl.acm.org/profile/99659584207"
-                                        title="Andrea Spreafico"><img
-                                            class="author-picture"
-                                            src="https://dl.acm.org/do/10.1145/contrib-99659584207/rel-imgonly/img_9687.jpg"
-                                            alt="Andrea Spreafico profile image" /><span>Andrea
-                                            Spreafico</span></a><span
-                                        class="loa_author_inst hidden">
-                                        <p data-doi="10.1145/contrib-99659584207">
-                                            University of Milano Bicocca, Italy</p>
-                                    </span><span>, </span></li>
-                                <li><a href="https://dl.acm.org/profile/81100417032"
-                                        title="Giuseppe Carenini"><img
-                                            class="author-picture"
-                                            src="https://dl.acm.org/pb-assets/icons/DOs/default-profile-1543932446943.svg"
-                                            alt="Giuseppe Carenini profile image" /><span>Giuseppe
-                                            Carenini</span></a><span
-                                        class="loa_author_inst hidden">
-                                        <p data-doi="10.1145/contrib-81100417032">
-                                            University of British Columbia, Canada</p>
-                                    </span></li>
-                            </ul>
+                              <ul class="rlist--inline loa truncate-list"
+                                  title="list of authors" data-lines="2">
+                                  <li><a href="https://dl.acm.org/profile/99659584207"
+                                          title="Andrea Spreafico"><img
+                                              class="author-picture"
+                                              src="https://dl.acm.org/do/10.1145/contrib-99659584207/rel-imgonly/img_9687.jpg"
+                                              alt="Andrea Spreafico profile image" /><span>Andrea
+                                              Spreafico</span></a><span
+                                          class="loa_author_inst hidden">
+                                          <p data-doi="10.1145/contrib-99659584207">
+                                              University of Milano Bicocca, Italy</p>
+                                      </span><span>, </span></li>
+                                  <li><a href="https://dl.acm.org/profile/81100417032"
+                                          title="Giuseppe Carenini"><img
+                                              class="author-picture"
+                                              src="https://dl.acm.org/pb-assets/icons/DOs/default-profile-1543932446943.svg"
+                                              alt="Giuseppe Carenini profile image" /><span>Giuseppe
+                                              Carenini</span></a><span
+                                          class="loa_author_inst hidden">
+                                          <p data-doi="10.1145/contrib-81100417032">
+                                              University of British Columbia, Canada</p>
+                                      </span></li>
+                              </ul>
 
-                            <div class="issue-item__detail"><span>September
-                                    2020</span><span class="dot-separator">pp 1-5
-                                </span><span><a
-                                        href="https://doi.org/10.1145/3399715.3399829"
-                                        class="issue-item__doi  dot-separator">https://doi.org/10.1145/3399715.3399829</a></span>
-                            </div>
-                            <div data-lines='4'
-                                class="issue-item__abstract truncate-text">
-                                <div class="issue-item__abstract truncate-text"
-                                    data-lines="4">
+                              <div class="issue-item__detail"><span>September
+                                      2020</span><span class="dot-separator">pp 1-5
+                                  </span><span><a
+                                          href="https://doi.org/10.1145/3399715.3399829"
+                                          class="issue-item__doi  dot-separator">https://doi.org/10.1145/3399715.3399829</a></span>
+                              </div>
+                              <div data-lines='4'
+                                  class="issue-item__abstract truncate-text">
+                                  <div class="issue-item__abstract truncate-text"
+                                      data-lines="4">
 
-                                    <p>The success of neural methods for image
-                                        captioning suggests that similar benefits
-                                        can be reaped for generating captions for
-                                        information visualizations. In this preliminary
-                                        study, we focus on the very popular line charts.
-                                        We propose a neural model which ...
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <link rel="stylesheet"
-            href="https://dl.acm.org/specs/products/acm/widgets/authorizer/scss/style.css" />
+                                      <p>The success of neural methods for image captioning suggests that
+                                        similar benefits can be reaped for generating captions for information
+                                        visualizations. In this preliminary study, we focus on the
+                                        very popular line charts. We propose a neural model which aims to
+                                        generate text from the same data used to create a line chart. Due to
+                                        the lack of suitable training corpora, we collected a dataset through
+                                        crowdsourcing. Experiments indicate that our model outperforms
+                                        relatively simple non-neural baselines.
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          <link rel="stylesheet"
+              href="https://dl.acm.org/specs/products/acm/widgets/authorizer/scss/style.css" />
 
 
           </Row>
