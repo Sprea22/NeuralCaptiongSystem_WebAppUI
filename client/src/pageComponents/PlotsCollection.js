@@ -57,8 +57,8 @@ class PlotsCollection extends Component {
                                     <li> <b> Data Freq: </b> monthly </li>
                                     <li> <b> Year: </b> {myJson[key]["year"]} </li>
                                     <li> <b> Location: </b> {myJson[key]["geo"]} </li>
-                                    <li> <b> Unit of Measure: </b> {myJson[key]["unit_of_measure"]} </li>
-                                    <li> <b> Source: </b> <url> https://www150.statcan.gc.ca/n1/en/type/data?HPA=1 </url></li>
+                                    <li> <b> Unit of Measure: </b> {myJson[key]["unit_of_measure"]} s</li>
+                                    <li> <b> Source: </b> <url> https://www150.statcan.gc.ca </url></li>
                                     </div>
                                 </Col>
                             </Row>

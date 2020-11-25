@@ -149,6 +149,7 @@ class Home extends Component {
                 which is fed into the decoder. The LSTM decoder predicts an output ht at time step
                 t which, by applying a softmax function and a detokenization process,
                 allow to obtain the output word wt.
+                <br/><br/>
                 </Row>
                 <Row class="align-items-center">
                 <br/>
