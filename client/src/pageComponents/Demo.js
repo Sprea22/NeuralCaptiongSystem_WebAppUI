@@ -93,10 +93,11 @@ class Demo extends Component {
 
             <Container>
               <br/><hr/><br/>
-              <h2> Details about the Line Chart you selected: </h2> 
-              <br/><br/>
+
               {this.state.selected_key !== "" ? (
                 <Row class="align-items-center">
+                <h2> Details about the Line Chart you selected: </h2> 
+                <br/>
                 <div class="col-12 col-md-5" align="left"> 
                       <div> 
                           <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
@@ -128,21 +129,21 @@ class Demo extends Component {
         {this.state.selected_key !== ""  ? (
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
           <Container fluid align="center">
-                <h2> Click here to generate a Sentece or Caption about the line chart image! </h2> 
+                <h2> Click here to generate a Sentence or Caption about the line chart image! </h2> 
                 <br></br>
           </Container>
           <Row>
-            <Col align="center">        
+            <<div class="col-12 col-md-6" align="center">        
               <Button className='ml-3' onClick={this.sentenceGen} > Sentence Generation</Button>
                 <hr/>
                 {this.state.output_sentence}
-            </Col>
+            </div>
 
-            <Col align="center">     
+            <div class="col-12 col-md-6" align="center">    
               <Button className='ml-3' onClick={this.captionGen} > Caption Generation</Button>
                 <hr/>
                 {this.state.output_caption}
-            </Col>
+            </div>
           </Row>
         </Jumbotron>
         ) 
