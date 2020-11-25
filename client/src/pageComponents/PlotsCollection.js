@@ -35,7 +35,7 @@ class PlotsCollection extends Component {
                         </Container>
                         <hr/>
                             <Row class="align-items-center">
-                                <Col class="col-6 col-12" align="center">
+                                <div class="col-6 col-12" align="center">
                                     <ImageZoom
                                         image={{
                                             src: require('../media/Plots_Collection/' + key + '.png'),
@@ -49,18 +49,18 @@ class PlotsCollection extends Component {
                                         }}
                                     />
 
-                                </Col>
+                                </div>
                                 <br/>
-                                <Col class="col-6 col-12" align="left"> 
+                                <div class="col-6 col-12" align="left"> 
                                     <div> 
                                     <li> <b> Title: </b> {myJson[key]["title"]} </li>
                                     <li> <b> Data Freq: </b> monthly </li>
                                     <li> <b> Year: </b> {myJson[key]["year"]} </li>
                                     <li> <b> Location: </b> {myJson[key]["geo"]} </li>
                                     <li> <b> Unit of Measure: </b> {myJson[key]["unit_of_measure"]}</li>
-                                <b> Source: </b> <url> https://www150.statcan.gc.ca </url>
+                                    <li> <b> Source: </b> <url> https://www150.statcan.gc.ca </url></li>
                                     </div>
-                                </Col>
+                                </div>
                             </Row>
                         </Jumbotron> 
                     </ListGroupItem>
