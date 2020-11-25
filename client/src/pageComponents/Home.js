@@ -138,7 +138,6 @@ class Home extends Component {
                 one sentence about the chart, the other producing a sequence of sentences,
                 i.e., a complete caption.
                 </p>
-                <Col xs="6">
                 <br/>
                 The model we've been working on (M0) is a standard neural model composed by two LSTMs: an encoder and a
                 decoder. The core concept of this model is the cell state, which can carry relevant
@@ -150,8 +149,8 @@ class Home extends Component {
                 which is fed into the decoder. The LSTM decoder predicts an output ht at time step
                 t which, by applying a softmax function and a detokenization process,
                 allow to obtain the output word wt.
-                </Col>
-                <Col xs="6" align="center"> 
+                </Row>
+                <Row class="align-items-center">
                 <br/>
                   <ImageZoom
                       image={{
@@ -166,7 +165,6 @@ class Home extends Component {
                       }}
                       />   
                   <br/>
-                </Col>
             </Row>
             
           </Container>
