@@ -325,7 +325,7 @@ class CaptionModal extends Component {
 
                             <hr/> 
                                 <Row class="align-items-center" style={{ marginTop: '1rem' }}>
-                                    <div class="col-6 col-12"  align="left" >
+                                    <div class="col-12 col-md-6"  align="left" >
                                         Please write a caption about the shown graph in the following input field, describing its content and the features you consider most important. <br/><br/>
                                         <Input type="textarea" name="caption_content" id="caption_content" rows="10" onChange={this.onChange} ref={el => this.caption_content = el}/>
                                         Words counter: {this.state.caption_content.split(" ").length}/75
@@ -333,7 +333,7 @@ class CaptionModal extends Component {
                                             (this.setState({start_time : new Date()})) : ("")
                                             }
                                     </div>
-                                    <div class="col-6 col-12"  align="left">
+                                    <div class="col-12 col-md-6"  align="left">
                                         <ImageZoom
                                         image={{
                                             src: require('../media/Plots_Collection/' + this.state.current_image_filename),

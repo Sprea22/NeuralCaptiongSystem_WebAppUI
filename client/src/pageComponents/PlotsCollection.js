@@ -35,7 +35,7 @@ class PlotsCollection extends Component {
                         </Container>
                         <hr/>
                             <Row class="align-items-center">
-                                <div class="col-6 col-12" align="center">
+                                <div class="col-12 col-md-8" align="center">
                                     <ImageZoom
                                         image={{
                                             src: require('../media/Plots_Collection/' + key + '.png'),
@@ -51,7 +51,7 @@ class PlotsCollection extends Component {
 
                                 </div>
                                 <br/><br/>
-                                <div class="col-6 col-12" align="left"> 
+                                <div class="col-12 col-md-4" align="left"> 
                                     <div> 
                                     <li> <b> Title: </b> {myJson[key]["title"]} </li>
                                     <li> <b> Data Freq: </b> monthly </li>
