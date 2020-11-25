@@ -133,7 +133,7 @@ class Demo extends Component {
                 <br></br>
           </Container>
           <Row>
-            <<div class="col-12 col-md-6" align="center">        
+            <div class="col-12 col-md-6" align="center">        
               <Button className='ml-3' onClick={this.sentenceGen} > Sentence Generation</Button>
                 <hr/>
                 {this.state.output_sentence}
