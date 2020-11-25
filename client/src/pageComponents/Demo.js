@@ -69,11 +69,11 @@ class Demo extends Component {
         <Jumbotron style={{ marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
             <Container fluid align="center">
               <h2> Select one of the following line chart images </h2> 
-              <h4> (click on the button) </h4> 
+              <h4> (click on the button and then scroll down) </h4> 
               <br></br>
             <Row>
             {this.state.items.map(({key}) => (
-                <div class="col-10 col-md-3" align="center">         
+                <div class="col-12 col-md-3" align="center">         
                     <Container fluid align="center">
                     <ImageZoom
                         image={{
@@ -93,6 +93,8 @@ class Demo extends Component {
 
             <Container>
               <br/><hr/><br/>
+              <h2> Details about the Line Chart you selected: </h2> 
+              <br/><br/>
               {this.state.selected_key !== "" ? (
                 <Row class="align-items-center">
                 <div class="col-12 col-md-5" align="left"> 
