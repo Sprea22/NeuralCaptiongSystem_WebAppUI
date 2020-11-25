@@ -41,18 +41,18 @@ class NavbarApp extends Component {
           <hr/><br/>
 
             <Row class="align-items-center">
-              <Col xs="4" align="center">
+            <div class="col-4 col-md-6" align="center">        
               <img src={unimib} alt={"No pic available"}  width="50" /><br/><br/>
                 <b> *University of Milano Bicocca </b><br/>
                 Imaging and Vision Laboratory
-              </Col>
-              <Col xs="4" align="center">         
-              </Col>
-              <Col xs="4" align="center"> 
+              </div>
+              <div class="col-4 col-md-0" align="center">        
+              </div>
+              <div class="col-4 col-md-6" align="center">        
                 <img src={ubc} alt={"No pic available"}  width="50" /><br/><br/>
                 <b> **University of British Columbia </b><br/>
                 Computational Intelligence Lab
-              </Col>
+              </div>
             </Row>
           </Container>
         </Jumbotron>
