@@ -73,7 +73,7 @@ class Demo extends Component {
               <br></br>
             <Row>
             {this.state.items.map(({key}) => (
-                <div class="col-10 col-md-3" align="center" style="padding-bottom: 10px">         
+                <div class="col-10 col-md-3" align="center">         
                     <Container fluid align="center">
                     <ImageZoom
                         image={{
