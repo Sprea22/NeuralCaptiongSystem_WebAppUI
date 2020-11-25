@@ -73,7 +73,7 @@ class Demo extends Component {
               <br></br>
             <Row>
             {this.state.items.map(({key}) => (
-                <Col>        
+                <div class="col-12 col-md-2" align="center">         
                     <Container fluid align="center">
                     <ImageZoom
                         image={{
@@ -86,7 +86,7 @@ class Demo extends Component {
                     <br/>
                     <Button id={key} className='ml-3'color={this.state.colorButton} onClick={this.handleUp}>Line chart #{key}</Button>
                 </Container>
-                </Col>
+                </div>
                 ))}
             </Row>
             </Container>
@@ -95,7 +95,7 @@ class Demo extends Component {
               <br/><hr/><br/>
               {this.state.selected_key !== "" ? (
                 <Row class="align-items-center">
-                  <Col xs="6" align="left"> 
+                <div class="col-12 col-md-4" align="left"> 
                       <div> 
                           <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
                           <li> <b> Data Freq: </b> monthly </li>
@@ -103,8 +103,8 @@ class Demo extends Component {
                           <li> <b> Location: </b> {myJson[this.state.selected_key]["geo"]} </li>
                           <li> <b> Unit of Measure: </b> {myJson[this.state.selected_key]["unit_of_measure"]} </li>
                       </div>
-                  </Col>
-                  <Col xs="6" align="left">
+                  </div>
+                  <div class="col-12 col-md-8" align="left">
                     <ImageZoom
                       image={{
                           src: require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
@@ -117,7 +117,7 @@ class Demo extends Component {
                           alt: 'Pic not available'
                       }}
                     />
-                  </Col>
+                  </div>
                 </Row>)
               : (<div> </div>)}
             </Container>
