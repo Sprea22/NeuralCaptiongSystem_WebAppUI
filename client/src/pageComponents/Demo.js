@@ -49,7 +49,7 @@ class Demo extends Component {
     }
     render() {
         this.state.items = []
-        var ids = [13, 32, 37, 78, 93]
+        var ids = [13, 32, 37, 78]
         for (var i = 0; i < ids.length; i++) {
             var item_idx = ids[i]
             this.state.items.push(<li key={item_idx}>{item_idx + ".png"}</li>)
@@ -73,7 +73,7 @@ class Demo extends Component {
               <br></br>
             <Row>
             {this.state.items.map(({key}) => (
-                <div class="col-12 col-md-2" align="center">         
+                <div class="col-10 col-md-3" align="center" style="padding-bottom: 10px">         
                     <Container fluid align="center">
                     <ImageZoom
                         image={{
@@ -95,7 +95,7 @@ class Demo extends Component {
               <br/><hr/><br/>
               {this.state.selected_key !== "" ? (
                 <Row class="align-items-center">
-                <div class="col-12 col-md-4" align="left"> 
+                <div class="col-12 col-md-5" align="left"> 
                       <div> 
                           <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
                           <li> <b> Data Freq: </b> monthly </li>
@@ -104,7 +104,7 @@ class Demo extends Component {
                           <li> <b> Unit of Measure: </b> {myJson[this.state.selected_key]["unit_of_measure"]} </li>
                       </div>
                   </div>
-                  <div class="col-12 col-md-8" align="left">
+                  <div class="col-12 col-md-7" align="center">
                     <ImageZoom
                       image={{
                           src: require('../media/Plots_Collection/' + this.state.selected_key + '.png'),
