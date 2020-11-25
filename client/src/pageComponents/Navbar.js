@@ -34,7 +34,7 @@ class NavbarApp extends Component {
 
             <Row class="align-items-center">
               <Col xs="12" align="center">   
-              Giuseppe Carenini**, Raimondo Schettini*, Paolo Napoletano*, Andrea Spreafico*
+              Andrea Spreafico*, Giuseppe Carenini**, Raimondo Schettini*, Paolo Napoletano*
               </Col>
             </Row>
 
