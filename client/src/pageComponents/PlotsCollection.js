@@ -50,7 +50,7 @@ class PlotsCollection extends Component {
                                     />
 
                                 </div>
-                                <br/>
+                                <br/><br/>
                                 <div class="col-6 col-12" align="left"> 
                                     <div> 
                                     <li> <b> Title: </b> {myJson[key]["title"]} </li>
