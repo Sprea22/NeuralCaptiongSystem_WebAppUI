@@ -95,9 +95,13 @@ class Demo extends Component {
               <br/><hr/><br/>
 
               {this.state.selected_key !== "" ? (
+                <Container>
                 <Row class="align-items-center">
-                <h2> Details about the Line Chart you selected: </h2> 
-                <br/>
+                  <h2> Details about the Line Chart you selected: </h2> 
+                  <br/>
+                </Row>
+                <Row class="align-items-center">
+
                 <div class="col-12 col-md-5" align="left"> 
                       <div> 
                           <li> <b> Title: </b> {myJson[this.state.selected_key]["title"]} </li>
@@ -121,7 +125,8 @@ class Demo extends Component {
                       }}
                     />
                   </div>
-                </Row>)
+                </Row>
+                </Container>)
               : (<div> </div>)}
             </Container>
         </Jumbotron>
