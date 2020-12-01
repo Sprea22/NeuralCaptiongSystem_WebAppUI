@@ -98,7 +98,7 @@ class Demo extends Component {
                 <Container>
                 <Row class="align-items-center">
                   <h2> Details about the Line Chart you selected: </h2> 
-                  <br/>
+                  <br/><br/>
                 </Row>
                 <Row class="align-items-center">
 
